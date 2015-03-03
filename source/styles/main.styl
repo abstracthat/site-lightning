@@ -1,0 +1,59 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,800,600')
+
+@import 'jeet'
+@import 'rupture'
+
+normalize-css()
+
+@import 'settings'
+@import 'lib/typography'
+// @import 'lib/ratio-box'
+
+// Fluid Images
+
+img
+  max-width 100%
+  height auto
+  -ms-interpolation-mode bicubic
+  display block
+  vertical-align middle
+
+// Border Box everything
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// Some basic styles... probably you want to make this modular in seperate files.
+
+body
+  background-color white - 20%
+
+.container
+  center desktop
+  background-color white
+
+  article
+    padding 0 g 2rem g
+
+h1.logo
+  background url('/images/lightning.jpg')
+  background-size 100%
+  color white
+  max-width desktop
+  text-align center
+  margin 0 auto
+  padding 3rem 3%
+  +above(4)
+    padding-top 6rem
+    padding-bottom 6rem
+
+p
+  color black + 20%
+
+.button
+  glossy-button olive large
+  font-weight 400

@@ -1,0 +1,25 @@
+block vars
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    block meta
+      title= title
+      meta(name='description', content= description)
+
+    // build:css style.min.css
+    link(rel='stylesheet', href='/main.css')
+    // endbuild
+
+    // build:js script.min.js
+    script(src='/lib/fastclick.js')
+    script(src='/lib/jquery.js')
+    script(src='/main.js')
+    // endbuild
+
+  body
+    block body

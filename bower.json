@@ -1,0 +1,22 @@
+{
+  "name": "sitelightning.co",
+  "version": "1.0.0",
+  "authors": [
+    "Josh Bertrand <josh.bertrand@gmail.com>"
+  ],
+  "description": "Jade, Sytlus, Coffeescript, Gulp boilerplate",
+  "license": "MIT",
+  "homepage": "http://sitelightning.co/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fastclick": "~1.0.6",
+    "jquery": "~2.1.3"
+  }
+}
