@@ -102,7 +102,7 @@ Media queries are handled by [Rupture](http://jenius.github.io/rupture/). I like
 Also feel free to use px or rem or em instead of the variables and check out the other mixins in the [Rupture docs](http://jenius.github.io/rupture/).
 
 #### GRID
-For the grid we use [Jeet](http://jeet.gs/). It's similar to Bourbon's grid. Check out the source if you want to see what it does... it's actually quite a small library. I have the default gutter set at 3%.
+For the grid we use [Jeet](http://jeet.gs/). It's similar to Bourbon's grid. Check out the source if you want to see what it does: `node_modules/jeet/stylus/jeet/_grid.styl` ...it's actually quite a small library. I have the default gutter set at 3%.
 
 ### JavaScript
 Well Coffeescript actually. For your own JS, add it to `source/scripts/main.coffee`. If you have a lot and want to make it modular you can use Node's [CommonJS](http://wiki.commonjs.org/wiki/CommonJS) standard and `require` your modules. Here's a tutorial to the idea: [Understanding Modules](http://www.sitepoint.com/understanding-module-exports-exports-node-js/). Or keep it simple and all in `main.coffee`.
