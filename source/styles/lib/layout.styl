@@ -1,18 +1,47 @@
-// Fluid Images
+// Padding, Margin Sides, Vertical
+// A shortcut for padding-left, padding-right
+// margin-left, margin-right
+// padding-top, padding-bottom
+// margin-top, margin-bottom
+// Pass 1 arg for same value for both or 2 args as left,right or top,bottom
+// Defaults to g for sides and base/2 for vertical value
+padding-sides(left = g, right = left)
+  padding-left left
+  padding-right right
 
-fluid-images()
-  img
-    max-width 100%
-    height auto
-    -ms-interpolation-mode bicubic
+// shorthand alias
+sides = padding-sides
+
+margin-sides(left = g, right = left)
+  margin-left left
+  margin-right right
+
+padding-vertical(top = (base / 2), bottom = top)
+  padding-top top
+  padding-bottom bottom
+
+margin-vertical(top = (base / 2), bottom = top)
+  margin-top top
+  margin-bottom bottom
+
+// Set a specific ratio for background images and video iframe embeds.
+ratio-box(ratio = 1/1)
+  ratio = remove-unit(ratio)
+  overflow hidden
+  position relative
+
+  // The container's height, as a percentage of the
+  // container's width, is set by assigning
+  // padding-top to a pseudo-element.
+  &:before
+    content ""
     display block
-    vertical-align middle
+    height 0
+    padding-top (1 / ratio) * 100%
 
-// Border Box everything
-
-border-box()
-  html
-    box-sizing border-box
-
-  *, *:before, *:after
-    box-sizing inherit
+// Collapse top margin of first child and bottom margin of second child.
+collapse-inner-margins()
+	> :first-child
+		margin-top 0
+	> :last-child
+		margin-bottom 0

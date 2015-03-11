@@ -6,8 +6,44 @@ block vars
 
 block body
   .container
-    h1.logo: a(href='/') Site Lightning
     article
-      include:markdown home.md
-      p.replace This text is replaced by jQuery call in main.coffee
-      p: a.button(href='/page') Go to This Page
+      h1 The Short Title
+      :markdown
+        Direct's trade "gluten-free" blog, fanny pack cray labore skateboard before they [sold out]() adipisicing non magna id Helvetica freegan. Disrupt aliqua Brooklyn church-key lo-fi dreamcatcher.
+        
+        ## Blue Bottle Nihil Culpa
+        Minim PBR **vegan** Tumblr irony. `Kogi eu Thundercats` sed scenester before they sold out et aesthetic. Elit cred Vice ethical pickled sartorial. Stumptown roof party freegan High Life vero, ea sed minim meggings.
+
+        ```
+        rhythm(bottom = 1, top = null, include-large-base = true)
+          margin-bottom base * bottom
+          if include-large-base
+            +above(large)
+              margin-bottom large-base * bottom
+          if top
+            margin-top base * top
+            if include-large-base
+              +above(large)
+                margin-top large-base * top
+
+        ```
+
+        _Laboris selfies occaecat umami, forage Tumblr American Apparel._ Retro Terry Richardson culpa id swag polaroid Intelligentsia American Apparel eu, esse non post-ironic fugiat master cleanse. Direct trade gluten-free blog, fanny pack cray labore skateboard before they sold out adipisicing non magna id Helvetica freegan. Disrupt aliqua Brooklyn church-key lo-fi dreamcatcher.
+
+        > Cosby sweater plaid shabby chic kitsch pour-over ex. Try hard fanny pack mumblecore cornhole cray scenester.
+
+        ## Fingerstache Nesciunt Lomo
+
+        - Roof party put a bird on it incididunt sed umami craft beer cred.
+        - Carles literally normcore, Williamsburg Echo Park fingerstache photo booth twee keffiyeh chambray whatever.
+        - Scenester High Life Banksy, proident master cleanse tousled squid sriracha ad chillwave post-ironic retro.
+
+        ### Truffaut disrupt sartorial deserunt
+        Esse non post-ironic fugiat master cleanse. Direct trade gluten-free blog, fanny pack cray labore skateboard before they sold out adipisicing non magna id Helvetica freegan. Disrupt aliqua Brooklyn church-key lo-fi dreamcatcher.
+
+        #### Steps The Scenester Before
+        0. Laboris selfies occaecat umami
+        0. Forage Tumblr American Apparel
+        0. Retro Terry Richardson culpa id swag polaroid Intelligentsia American Apparel
+
+      a.button(href='/page') Go to This Page

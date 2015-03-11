@@ -1,56 +1,35 @@
-// font stack (add your own!)
+// Font stacks
+open-sans = "Open Sans", "Helvetica Neue", Helvetica, sans-serif
+monospace = unquote("'Bitstream Vera Sans Mono', Consolas, Courier, monospace")
+garamond = "adobe-garamond-pro", Times New Roman, serif
 helvetica-neue = "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif
 helvetica = "Helvetica Neue", Helvetica, Arial, sans-serif
 georgia = Georgia, Cambria, "Times New Roman", Times, serif
 lucidia-grande = "Lucida Grande", Tahoma, Verdana, Arial, sans-serif
-monospace = unquote("'Bitstream Vera Sans Mono', Consolas, Courier, monospace")
 verdana = Verdana, Geneva, sans-serif
-open-sans = "Open Sans", "Helvetica Neue", Helvetica, sans-serif
 
-// default font stack
 font-stack = open-sans
-font-size = 16
-font-color = #555
 
-content-bg-color = white
-
-color1 = #597533
-color2 = #E6DEA5
-color3 = #61B594
-color4 = #332F28
-color5 = #C44E18
-
-navy = #001F3F
-blue = #0074D9
-aqua = #7FDBFF
-teal = #39CCCC
-olive = #3D9970
-green = #2ECC40
-lime = #01FF70
-yellow = #FFDC00
-orange = #FF851B
-red = #D13F19
-maroon = #85144B
-fuchsia = #F012BE
-purple = #B10DC9
-white = #FFFFFF
-silver = #DDDDDD
-gray = #AAAAAA
-black = #222222
+// This sets the baseline grid
+body-font-size = 1.15rem
+body-line-height = 1.5
+// This gives a boost to the size of the baseline grid for large screens
+desktop-ratio = 1.07
 
 // Breakpoints (http://jenius.github.io/rupture/)
-mobile-cutoff = mobile = 450px
-tablet-cutoff = tablet = 450px
-desktop-cutoff = desktop = 960px
-enable-em-breakpoints = true
-base-font-size = 16px
-scale = 0 mobile tablet 850px desktop
+mobile-cutoff = mobile = small = 28em
+tablet-cutoff = tablet = medium = 40em
+desktop-cutoff = desktop = large = 53em
+scale = 0 small (small + ((medium - small) / 2)) medium (medium + ((large - medium) / 2)) large
 
 // Grid Settings (http://jeet.gs/)
+// gutter is a percentage for side padding on columns
+// max-width is the maximum site width
 jeet = {
   gutter: 3,
-  parent-first: false,
-  layout-direction: LTR
+  max-width: 60em
 }
 
-g = (jeet.gutter)%
+// Alias for adding gutter as a percentage
+// Useful in padding and margin declarations
+g = gutter = (jeet.gutter)%

@@ -1,39 +1,52 @@
-// Some basic styles you can delete
-
 body
-  background-color white - 20%
+  background-color white - 15%
 
 .container
-  center desktop
+  center()
   background-color white
 
-  article
-    padding 0 g 2rem g
-    h2, h3, h4, h5, h6
-      text-align center
-      +above(tablet)
-        text-align left
+.page
+  offcanvas(
+    side: 'top',
+    size: 15em,
+    push: 0px,
+    show: false,
+    menu: '.menu',
+    content: '.content'
+    )
 
+.menu
+  height 50em
+  background-color black + 10%
+  p
+    color white - 20%
+
+article
+  center medium
+  padding-sides()
+  padding-vertical base
+
+  +above(mobile)
+    padding 0
+
+  +above(large)
+    padding-vertical large-base
 
 h1.logo
   background url('/images/lightning.jpg')
   background-size 100%
   color white
-  max-width desktop
   text-align center
   margin 0 auto
-  padding 3rem 3%
+  padding-vertical()
 
   a
     color white
 
-  +above(4)
-    padding-top 6rem
-    padding-bottom 6rem
-
-p
-  color black + 20%
+  +above(desktop)
+    padding-vertical 6rem
 
 .button
-  glossy-button olive large
-  font-weight 400
+  button olive
+  font-size 1.2em
+  font-weight 600
