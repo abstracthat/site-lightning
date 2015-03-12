@@ -5,17 +5,18 @@ section.signup
     :markdown
       Making websites should be fun. Cut through all of the noise and learn the simple way to go from total beginner to webmaster!
 
-      ### Sign Up For Free Right Now
-
-    form
-      input(
-        name='FNAME'
-        type='text'
-        placeholder='First Name'
-        )
-      input(
-        name='EMAIL'
-        type='email'
-        placeholder='Your Email'
-        )
-      button.button(type='submit') Start the Course
+    .form
+      h3 Sign Up For Free Right Now
+      
+      form
+        .field
+          input(
+            name='FNAME'
+            type='text'
+            placeholder='First Name')
+        .field
+          input(
+            name='EMAIL'
+            type='email'
+            placeholder='Your Email')
+        button.button(type='submit') Start the Course
