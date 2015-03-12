@@ -30,6 +30,8 @@ Everything is in gulpfile.coffee. Basically you just use the first two here...
 - `gulp preview` if you want to preview the production build before deploying
 - `gulp clean` if you need to banish some old files while developing
 
+> Are you telling me that all I have to remember to type is... "gulp"? That is awesome!
+
 ## Server Setup
 Add your server to gulpfile.coffee as a string under the `server` variable. This should be whatever you type to ssh to your server (depends on your ssh hosts config), then a colon, then the absolute path to your website's public directory. For me this is: `projects:/var/www/sitelightning.co`.
 
@@ -127,9 +129,9 @@ script(src='/main.js')
 ## Read the Docs
 Seriously you should quickly read the docs to make sure you know the languages well enough. Once you get the hang of it you will be flying. I listed them in order of importance.
 
-- [Jade](http://jade-lang.com/reference)
-- [Axis](http://axis.netlify.com/)
-- [Rupture](http://jenius.github.io/rupture/)
-- [Jeet](http://jeet.gs/)
-- [Stylus](http://learnboost.github.io/stylus/)
-- [Coffeescript](http://coffeescript.org/)
+0. [Jade](http://jade-lang.com/reference)
+0. [Axis](http://axis.netlify.com/)
+0. [Rupture](http://jenius.github.io/rupture/)
+0. [Jeet](http://jeet.gs/)
+0. [Stylus](http://learnboost.github.io/stylus/)
+0. [Coffeescript](http://coffeescript.org/)

@@ -1,12 +1,6 @@
 // Font stacks
 open-sans = "Open Sans", "Helvetica Neue", Helvetica, sans-serif
-monospace = unquote("'Bitstream Vera Sans Mono', Consolas, Courier, monospace")
-garamond = "adobe-garamond-pro", Times New Roman, serif
-helvetica-neue = "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif
-helvetica = "Helvetica Neue", Helvetica, Arial, sans-serif
-georgia = Georgia, Cambria, "Times New Roman", Times, serif
-lucidia-grande = "Lucida Grande", Tahoma, Verdana, Arial, sans-serif
-verdana = Verdana, Geneva, sans-serif
+garamond = "adobe-garamond-pro", "Garamond", Times New Roman, serif
 
 font-stack = open-sans
 
@@ -27,8 +21,11 @@ scale = 0 small (small + ((medium - small) / 2)) medium (medium + ((large - medi
 // max-width is the maximum site width
 jeet = {
   gutter: 3,
-  max-width: 60em
+  max-width: 55em
 }
+
+// Useful Aliases for max width
+site-max-width = max-site-width = jeet.max-width
 
 // Alias for adding gutter as a percentage
 // Useful in padding and margin declarations

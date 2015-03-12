@@ -1,52 +1,139 @@
-body
-  background-color white - 15%
-
-.container
-  center()
-  background-color white
-
-.page
-  offcanvas(
-    side: 'top',
-    size: 15em,
-    push: 0px,
-    show: false,
-    menu: '.menu',
-    content: '.content'
-    )
-
-.menu
-  height 50em
-  background-color black + 10%
-  p
-    color white - 20%
-
-article
-  center medium
-  padding-sides()
-  padding-vertical base
-
-  +above(mobile)
-    padding 0
+// Base Typography
+html
+  font-size 100%
+  line-height body-line-height
 
   +above(large)
-    padding-vertical large-base
+    font-size large-body-font-size
+    line-height large-body-line-height
 
-h1.logo
-  background url('/images/lightning.jpg')
-  background-size 100%
-  color white
-  text-align center
-  margin 0 auto
-  padding-vertical()
+body
+  font-family font-stack
+  background-color white - 15%
 
-  a
-    color white
+p, li
+  color black + 20%
 
-  +above(desktop)
-    padding-vertical 6rem
-
-.button
-  button olive
-  font-size 1.2em
+strong, b
   font-weight 600
+
+p, ul, ol, pre
+  rhythm 1
+
+// Lists
+ul
+  list-style-type square
+
+li
+  display list-item
+  margin-left 1.3em
+
+// Headers
+h1
+  rhythm-size 2.6
+  margin-bottom (base / 2)
+
+  +above(large)
+    rhythm-size 3.4, large-base
+    margin-bottom (large-base / 2)
+
+h2
+  font-weight 600
+  rhythm-size 1.625
+  margin-bottom (base / 2)
+
+  +above(small)
+    rhythm-size 2
+
+  +above(large)
+    rhythm-size 2.25, large-base
+    margin-bottom (large-base / 2)
+
+h3
+  rhythm-size 1.375
+  margin-bottom (base / 2)
+  font-weight 600
+  color black + 20%
+
+  +above(small)
+    rhythm-size 1.5
+
+  +above(large)
+    rhythm-size 1.75, large-base
+    margin-bottom (large-base / 2)
+
+h4, h5, h6
+  rhythm-size 1.125
+  margin-bottom (base / 2)
+  font-weight 600
+  color black + 20%
+
+  +above(large)
+    rhythm-size 1.125, large-base
+    margin-bottom (large-base / 2)
+
+// Links
+a
+  link blue 'darken'
+
+// Blockquote
+blockquote
+  font-family georgia
+  font-style italic
+  margin 0
+  rhythm-size 1.3
+  text-align center
+  position relative
+  padding-vertical base
+  rhythm 1
+
+  &:before
+    content ''
+    position absolute
+    left 25%
+    top 0
+    width 50%
+    border-top 1px solid silver
+
+  &:after
+    content ''
+    position absolute
+    left 25%
+    bottom 0
+    width 50%
+    border-bottom 1px solid silver
+
+  p
+    margin 0
+
+// Inline Code and Code Blocks
+pre 
+  > code
+    display block
+    padding (base / 2) g
+    background-color black + 7%
+    color white - 15%
+    white-space pre-wrap
+    word-break break-word
+    font-family Menlo, Monaco, monospace
+
+    +above(mobile)
+      margin 0
+      padding g
+
+code
+  padding 3px 8px
+  color inherit
+  background-color white - 10%
+  border-radius 3px
+  font-family Menlo, Monaco, monospace
+  display inline-block
+
+// Hyphenation and Line/Word Breaking
+p, li, span, small, a
+  word-wrap break-word // Break long urls
+  word-break break-word // webkit
+  hyphens auto // none, auto, <number>
+  -webkit-hyphenate-before 2
+  -webkit-hyphenate-after 3
+  hyphenate-lines 3

@@ -1,0 +1,90 @@
+// User defined variables for setting the baseline grid
+body-font-size ?= 1rem
+body-line-height ?= 1.5
+
+// This gives a boost to the size of the baseline grid for large screens
+desktop-ratio ?= 1.07
+
+large-body-font-size = body-font-size * desktop-ratio
+large-body-line-height = body-line-height * desktop-ratio
+
+// Baseline Grid units
+// These two variables are commonly used to add vertical padding or margin
+base = body-font-size * body-line-height
+large-base = desktop-base = large-body-font-size * large-body-line-height
+
+
+// Font Rhythm
+// Calculates line-height based on the given fontsize and optional baseline size
+//
+// Usage:
+// font-rhythm 2.5
+// makes font-size 2.5em and sets line-height
+//
+// font-rhythm 2.5em large-base
+// makes font-size 2.5em, sets line-height, uses the large-base for the baseline
+
+font-rhythm(fontsize, baseline = base, split = false, lines = 1)
+  font-size 1em * fontsize
+  line-height remove-unit(ceil(fontsize / baseline) * (baseline / fontsize))
+// alias
+rhythm-size = font-rhythm
+
+
+// Rhythm
+// Adds margin-bottom and/or margin-top in increments of the baseline-grid.
+// Includes a media query for using the larger baseline on large screens.
+// Pass false to include-base-large if you don't want this or even simpler...
+// don't use this mixin if you are just doing
+// margin-bottom base * 2
+
+rhythm(bottom = 1, top = null, include-large-base = true)
+  margin-bottom base * bottom
+  if include-large-base
+    +above(large)
+      margin-bottom large-base * bottom
+  if top
+    margin-top base * top
+    if include-large-base
+      +above(large)
+        margin-top large-base * top
+
+
+// Find Padding
+// Calculates padding for specific font-size, line-height, baseline, line count.
+// If the text stacks to multiple lines we need to know how many in order to
+// calculate the correct padding.
+
+find-padding(fontsize, lineheight, baseline = base, lines = 1, split = false)
+  height = fontsize * lineheight
+  units = (height / base)
+  pad = (ceil(units) - units) * base
+  if split
+    padding-top (pad / 2) * lines
+    padding-bottom (pad / 2) * lines
+  else
+    padding-bottom pad * lines
+
+
+// Render the base grid lines
+render-baseline()
+  html
+    position: relative
+
+    &:after
+      position absolute
+      size auto
+      z-index 9999
+      content ''
+      display block
+      pointer-events none
+      top -1px
+      right 0
+      bottom 0
+      left 0
+      background-repeat repeat
+      background-position top left
+      background-image linear-gradient(to bottom, rgba(0,0,0,.15) 0%, transparent 5%, transparent 100%)
+      background-size 100% base
+      +above(large)
+        background-size 100% large-base

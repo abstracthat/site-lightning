@@ -1,0 +1,33 @@
+.page
+  background-color white
+
+section.content
+  // center content with a readable measure and horizontal padding
+  // Set top and bottom margin to base + media query to use large-base for desktop
+  center medium
+  sides()
+  padding-vertical()
+
+  // once we hit the medium breakpoint we can remove the side padding
+  // we add the default padding (g) to keep padding as we near the breakpoint
+  +above(medium + g)
+    padding-sides 0
+
+  +above(large)
+    padding-top large-base
+
+  // Article intro paragraph
+  p:first-of-type
+    rhythm-size 1.2
+    line-height 1.5
+    margin-bottom base
+
+    +above(large)
+      rhythm-size 1.2, large-base
+      margin-bottom (large-base / 2)
+
+  // Button for main call-to-action
+  .button
+    button olive
+    font-size 1.2em
+    font-weight 600

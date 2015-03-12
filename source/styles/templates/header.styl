@@ -1,0 +1,82 @@
+.page > header
+  group()
+  background-color black
+
+nav.main
+  center()
+  group()
+  padding-top base
+
+  +above(3)
+    padding-right g
+
+.menu-toggle
+  float right
+  padding-right g
+  display inline-block
+  position absolute
+  top 0
+  right 0
+  padding base g
+
+  +above(3)
+    display none
+
+.menu-icon
+  width 32px
+  height 3px
+  color white
+  box-shadow inset 0 0 0 32px,0 -8px,0 8px
+  margin-top (base / 2)
+
+.logo
+  font-weight 600
+  rhythm-size 1.5
+  margin-left g
+  margin-bottom base
+
+  +above(3)
+    float left
+    padding-left 0
+
+  a
+    link white, glow
+
+.menu 
+  display none
+
+  &.open
+    display block
+
+  +above(3)
+    display block
+
+  > ul
+    reset-list()
+
+    +above(3)
+      float right
+      inline-list 2em
+
+    li
+      background-color black + 20%
+      margin-bottom 1px
+      rhythm-size 1.1
+
+      +above(3)
+        margin-bottom 0
+        padding 0
+        background none
+      
+      a
+        display block
+        hover-darken 40%
+        transition .3s
+        padding (base / 2) g
+        link teal darken
+
+        +above(3)
+          link teal
+          padding 0
+          &:hover
+            background none

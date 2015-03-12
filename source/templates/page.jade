@@ -1,0 +1,32 @@
+extends base
+
+block vars
+
+block body
+  //- Main Page Container
+  .page
+    //- Header and Menu
+    header
+      nav.main
+        .logo
+          a(href='/') Site Lightning
+
+        .menu-toggle#menu
+          .menu-icon
+
+        .menu
+          ul
+            li: a(href='#') Page One
+            li: a(href='#') Another Page
+            li: a(href='#') One More Page
+
+    section.content
+      header
+        h1!= title
+      article(role='main')
+        block content
+          != content
+    block email
+      include includes/email-signup
+    block footer
+      include includes/footer

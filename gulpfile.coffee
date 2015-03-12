@@ -59,7 +59,8 @@ gulp.task 'stylus', ->
     use: [
       jeet()
       rupture()
-      axis()
+      axis
+        implicit: false
     ]
   .pipe plugins.autoprefixer()
   .pipe plugins.sourcemaps.write()
