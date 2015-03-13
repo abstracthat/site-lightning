@@ -65,6 +65,7 @@ gulp.task 'stylus', ->
   .pipe plugins.autoprefixer()
   .pipe plugins.sourcemaps.write()
   .pipe gulp.dest path.development
+  .pipe reload stream: true
 
 # Compile coffeescript to js with sourcemaps
 gulp.task 'coffee', ->
@@ -180,6 +181,7 @@ gulp.task 'clean', ['clear'], ->
 # Open a web browser and watch for changes
 gulp.task 'browser', ->
   browserSync.init
+    notify: false
     server:
       baseDir: [
         path.development
@@ -189,7 +191,7 @@ gulp.task 'browser', ->
 
   # Watch for changes
   gulp.watch path.allContent, ['jade', reload]
-  gulp.watch path.stylus, ['stylus', reload]
+  gulp.watch path.stylus, ['stylus']
   gulp.watch path.coffee, ['js', reload]
   gulp.watch path.images, reload
 
