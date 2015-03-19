@@ -2,10 +2,11 @@ Because making websites should be fun... and fast. Boilerplate for static site b
 
 ## New Features
 - Write basic content pages with markdown + front-matter
-- site.json metadata content for entire site with ordered collections. Good for rendering index pages and menus (see `source/templates/includes/header.jade`).
-
-## Config
-Add your site global variables to site.yml. 
+- site.json metadata content for entire site with ordered collections. Good for rendering index pages and menus, i.e.
+    - `source/content/tutorials/index.jade`
+    - `source/templates/includes/header.jade`
+    - `source/templates/includes/footer.jade`
+- Add your site global variables to site.yml. 
 
 ## TODO
 0. opengraph meta per file
