@@ -244,7 +244,7 @@ gulp.task 'browser', ->
       middleware: cleanUrls 'development'
 
   # Watch for changes
-  gulp.watch path.allContent, ['jade', reload]
+  gulp.watch path.allContent, ['jade', 'markdown', reload]
   gulp.watch path.stylus, ['stylus']
   gulp.watch path.coffee, ['js', reload]
   gulp.watch path.images, reload

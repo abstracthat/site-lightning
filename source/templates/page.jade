@@ -12,7 +12,7 @@ block body
       header
         h1!= title
         if date
-          time(datetime= datetime)= date
+          time(datetime= datetime) Written on #{date}
       article(role='main')
         block content
           //- Markdown files get rendered here

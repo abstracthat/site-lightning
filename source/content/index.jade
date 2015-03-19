@@ -6,4 +6,21 @@ description: Site Lightning is the fast way to design and build a static website
 extends ../templates/page
 
 block content
-  include:markdown ../../readme.md
+  :markdown
+    Because making websites should be fun... and fast. Boilerplate for static site built with Jade, Stylus and Coffeescript. Use Gulp as a static site generator with support for collections and front-matter metadata.
+
+    ## Quick Start
+    You need [Node](http://nodejs.org), [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/). You'll also probably want some nice themes for your text editor for Jade, Stylus, and Coffeescript.
+
+    ```bash
+    npm install -g gulp
+    npm install -g bower
+    
+    git clone https://github.com/abstracthat/sitelightning.git your-site
+    cd your-site
+    npm install
+    gulp
+    ```
+
+    The full [documentation is a work in progress](http://sitelightning.co/documentation). You might also find the front-end development [tutorials](/tutorials/) helpful.
+

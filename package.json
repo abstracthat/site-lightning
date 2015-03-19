@@ -50,6 +50,7 @@
     "gulp-util": "^3.0.3",
     "highlight.js": "^8.4.0",
     "hygienist-middleware": "0.0.3",
+    "jade": "^1.9.2",
     "jeet": "^6.1.2",
     "lodash": "^3.5.0",
     "main-bower-files": "^2.5.0",

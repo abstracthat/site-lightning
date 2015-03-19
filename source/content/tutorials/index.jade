@@ -18,7 +18,6 @@ block content
     section.pages
       each page in collections['/tutorials/'].pages
         article.article
-          time(datetime= page.datetime)= page.date
           h2: a(href=page.url)= page.title
           p!= page.intro
           a(href=page.url) Read more...
