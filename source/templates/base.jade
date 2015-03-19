@@ -6,7 +6,7 @@ html(lang='en')
   head
     +google-font('Open Sans', 400, '400italic', 600, '600italic', 800)
 
-    // build:css style.min.css
+    // build:css /style.min.css
     link(rel='stylesheet', href='/main.css')
     // endbuild
 
@@ -18,7 +18,7 @@ html(lang='en')
       title= title
       meta(name='description', content= description)
 
-    // build:js script.min.js
+    // build:js /script.min.js
     script(src='/lib/fastclick.js')
     script(src='/lib/jquery.js')
     script(src='/main.js')

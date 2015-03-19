@@ -165,8 +165,8 @@ gulp.task 'compile', [
 ]
 
 # Convert production files into development files
-# concat, minify, optimize, cache bust
-gulp.task 'optimize', (done) ->
+# concat, minify, optimize
+gulp.task 'optimize', ->
   # parse the html files for build blocks
   # return the concatenated file for each block
   assets = plugins.useref.assets searchPath: path.development
@@ -183,7 +183,6 @@ gulp.task 'optimize', (done) ->
   # minify the html
   .pipe plugins.if '*.html', plugins.minifyHtml()
   .pipe gulp.dest path.production
-  done()
 
 # cache bust asset file names
 gulp.task 'cacheref', (done) ->
@@ -222,11 +221,12 @@ gulp.task 'images', (done) ->
   done()
 
 # Move other files for production
-gulp.task 'move', ->
+gulp.task 'move', (done) ->
   gulp.src [
     'source/fonts/**/*'
   ]
   .pipe gulp.dest "#{path.production}"
+  done()
 
 # Clear Gulp cache
 gulp.task 'clear', (done) ->
@@ -268,7 +268,7 @@ gulp.task 'previewBrowser', ->
       middleware: cleanUrls 'production'
 
 # rsync the build directory to your server
-gulp.task 'rsync', ->
+gulp.task 'rsync', (done) ->
   rsync
     ssh: true
     src: "#{path.production}/"
@@ -278,25 +278,26 @@ gulp.task 'rsync', ->
     args: ['--verbose']
   , (erro, stdout, stderr, cmd) ->
     plugins.util.log(stdout)
+    done()
 
 #################
 # Main Gulp Tasks
 #################
 
 # Develop (the defualt task)
-gulp.task 'develop', ['map'], (done) ->
-  runSequence 'compile', 'browser', done
+gulp.task 'develop', (done) ->
+  runSequence 'map', 'compile', 'browser', done
 
 gulp.task 'default', ['develop']
 
 # Build full site ready for production
 gulp.task 'build', (done) ->
-  runSequence 'clean', 'compile', ['optimize', 'move', 'images'], 'cachebust', done
+  runSequence 'clean', 'map', 'compile', ['optimize', 'move', 'images'], 'cachebust', done
 
 # Preview server for production
 gulp.task 'preview', (done) ->
   runSequence 'build', 'previewBrowser', done
 
 # Deploy production site
-gulp.task 'deploy', (done) ->
-  runSequence 'build', 'rsync', done
+gulp.task 'deploy', ['build'], (done) ->
+  runSequence 'rsync', done
