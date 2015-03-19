@@ -1,5 +1,5 @@
 ---
-title: Thanks for Contacting Us
+title: Thanks!
 layout: page
 ---
-We'll be in touch shortly.
+Your message has been sent. We'll be in touch with you as soon as we can. Cheers!
