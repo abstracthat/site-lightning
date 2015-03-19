@@ -18,6 +18,7 @@
     "browserify": "^9.0.3",
     "cheerio": "^0.18.0",
     "coffee-script": "^1.9.0",
+    "del": "^1.1.1",
     "front-matter": "^1.0.0",
     "glob": "^5.0.3",
     "gulp": "^3.8.11",

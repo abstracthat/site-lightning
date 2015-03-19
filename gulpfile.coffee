@@ -26,6 +26,7 @@ rupture = require 'rupture'
 # Date parsing
 moment = require 'moment'
 
+del = require 'del'
 jade = require 'jade'
 _ = require 'lodash'
 
@@ -144,16 +145,11 @@ gulp.task 'installBower', (done) ->
   plugins.bower done
   
 
-gulp.task 'moveBowerFiles', ['installBower'], (done) ->
+gulp.task 'bower', ['installBower'], (done) ->
   if exists './bower_components'
     gulp.src bowerFiles()
     .pipe gulp.dest "#{path.development}/lib"
   done()
-
-gulp.task 'bower', [
-  'installBower'
-  'moveBowerFiles'
-]
 
 # Compile source files for development
 gulp.task 'compile', [
@@ -203,12 +199,10 @@ gulp.task 'cacheref', (done) ->
 
 # cleanup cachebust assets
 gulp.task 'cachebust', ['cacheref'], (done) ->
-  gulp.src [
+  del [
     "#{path.production}/script.min.js"
     "#{path.production}/style.min.css"
-    ]
-  .pipe plugins.clean()
-  done()
+    ], done()
 
 # Optimize and move images
 gulp.task 'images', (done) ->
@@ -234,14 +228,12 @@ gulp.task 'clear', (done) ->
 
 # Delete development and production build folders
 gulp.task 'clean', ['clear'], (done) ->
-  gulp.src [
+  del [
     path.development
     path.production
     './bower_components'
     './site.json'
-  ], read: false
-  .pipe plugins.clean()
-  done()
+  ], done()
 
 # Open a web browser and watch for changes
 gulp.task 'browser', ->
