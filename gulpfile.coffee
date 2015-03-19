@@ -82,7 +82,7 @@ gulp.task 'markdown', (done) ->
   done()
 
 # Compile Jade source
-gulp.task 'jade', ->
+gulp.task 'jade', (done) ->
   site = require './site.json'
   gulp.src path.jade
   .pipe plugins.plumber()
@@ -97,9 +97,10 @@ gulp.task 'jade', ->
   .pipe plugins.jade
     pretty: true
   .pipe gulp.dest path.development
+  done()
 
 # Compile stylus to css with sourcemaps
-gulp.task 'stylus', ->
+gulp.task 'stylus', (done) ->
   gulp.src path.mainStylus
   .pipe plugins.plumber()
   .pipe plugins.sourcemaps.init()
@@ -114,9 +115,10 @@ gulp.task 'stylus', ->
   .pipe plugins.sourcemaps.write()
   .pipe gulp.dest path.development
   .pipe reload stream: true
+  done()
 
 # Compile coffeescript to js with sourcemaps
-gulp.task 'coffee', ->
+gulp.task 'coffee', (done) ->
   gulp.src path.coffee
   .pipe plugins.plumber()
   .pipe plugins.sourcemaps.init()
@@ -125,24 +127,28 @@ gulp.task 'coffee', ->
   .on 'error', plugins.util.log
   .pipe plugins.sourcemaps.write()
   .pipe gulp.dest path.development
+  done()
 
 # Use browserify to compile any require statments
-gulp.task 'js', ['coffee'], ->
+gulp.task 'js', ['coffee', 'bower'], (done) ->
   gulp.src "#{path.development}/main.js"
   .pipe plugins.plumber()
   .pipe transform (file) ->
     (browserify file).bundle()
   .pipe gulp.dest path.development
+  done()
 
 # Install Bower dependencies and move to development lib folder
 # To use a library add it to build blocks in base.jade
-gulp.task 'installBower', ->
-  plugins.bower()
+gulp.task 'installBower', (done) ->
+  plugins.bower done
+  
 
-gulp.task 'moveBowerFiles', ['installBower'], ->
+gulp.task 'moveBowerFiles', ['installBower'], (done) ->
   if exists './bower_components'
     gulp.src bowerFiles()
     .pipe gulp.dest "#{path.development}/lib"
+  done()
 
 gulp.task 'bower', [
   'installBower'
@@ -160,7 +166,7 @@ gulp.task 'compile', [
 
 # Convert production files into development files
 # concat, minify, optimize, cache bust
-gulp.task 'optimize', ->
+gulp.task 'optimize', (done) ->
   # parse the html files for build blocks
   # return the concatenated file for each block
   assets = plugins.useref.assets searchPath: path.development
@@ -177,9 +183,10 @@ gulp.task 'optimize', ->
   # minify the html
   .pipe plugins.if '*.html', plugins.minifyHtml()
   .pipe gulp.dest path.production
+  done()
 
 # cache bust asset file names
-gulp.task 'cacheref', ->
+gulp.task 'cacheref', (done) ->
   bust = new plugins.cachebust()
 
   gulp.src "#{path.production}/**/*.css"
@@ -193,23 +200,26 @@ gulp.task 'cacheref', ->
   gulp.src "#{path.production}/**/*.html"
   .pipe bust.references()
   .pipe gulp.dest path.production
+  done()
 
 # cleanup cachebust assets
-gulp.task 'cachebust', ['cacheref'], ->
+gulp.task 'cachebust', ['cacheref'], (done) ->
   gulp.src [
     "#{path.production}/script.min.js"
     "#{path.production}/style.min.css"
     ]
   .pipe plugins.clean()
+  done()
 
 # Optimize and move images
-gulp.task 'images', ->
+gulp.task 'images', (done) ->
   gulp.src "#{path.images}/*"
   .pipe plugins.plumber()
   .pipe plugins.cache plugins.imagemin
     progressive: true
     interlaced: true
   .pipe gulp.dest "production/images"
+  done()
 
 # Move other files for production
 gulp.task 'move', ->
@@ -223,7 +233,7 @@ gulp.task 'clear', (done) ->
   plugins.cache.clearAll done
 
 # Delete development and production build folders
-gulp.task 'clean', ['clear'], ->
+gulp.task 'clean', ['clear'], (done) ->
   gulp.src [
     path.development
     path.production
@@ -231,6 +241,7 @@ gulp.task 'clean', ['clear'], ->
     './site.json'
   ], read: false
   .pipe plugins.clean()
+  done()
 
 # Open a web browser and watch for changes
 gulp.task 'browser', ->

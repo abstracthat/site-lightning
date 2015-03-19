@@ -115,7 +115,8 @@ sortCollectionPages = (done) ->
 
 # Write the site object to site.json
 writeJSON = (done) ->
-  fs.writeFile './site.json', JSON.stringify site, done()
+  fs.writeFileSync './site.json', JSON.stringify site
+  done()
 
 # Main program
 module.exports = (done) ->
