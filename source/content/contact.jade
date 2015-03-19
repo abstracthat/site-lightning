@@ -11,7 +11,9 @@ block content
 
     For all other questions feel free to fill out the contact request form below...
 
-  form.contact#contact(action='//formspree.io/josh.bertrand@gmail.com')
+  form.contact#contact(
+    method='POST'
+    action='//formspree.io/josh.bertrand@gmail.com')
     input(
       type='text'
       name='name'
