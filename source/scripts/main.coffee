@@ -10,7 +10,7 @@ $ ->
   form = $ '#signup'
 
   if form.length
-    ($ 'form button').bind 'click', (event) ->
+    ($ '#signup button').bind 'click', (event) ->
       event.preventDefault()
       validate (response, name, email) ->
         if response
