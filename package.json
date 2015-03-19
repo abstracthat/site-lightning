@@ -27,7 +27,6 @@
     "gulp-browserify": "^0.5.1",
     "gulp-cache": "^0.2.7",
     "gulp-cachebust": "0.0.5",
-    "gulp-clean": "^0.3.1",
     "gulp-coffee": "^2.3.1",
     "gulp-csso": "^1.0.0",
     "gulp-data": "^1.2.0",
