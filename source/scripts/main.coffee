@@ -7,7 +7,7 @@ $ ->
     $('.menu').toggleClass('open')
 
   # AJAX Mailchimp Opt-In Form
-  form = $ 'form'
+  form = $ '#signup'
 
   if form.length
     ($ 'form button').bind 'click', (event) ->

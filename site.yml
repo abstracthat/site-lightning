@@ -1,0 +1,33 @@
+# Global site config
+site:
+  name: Site Lightning
+  url: sitelightning.co
+
+# Main menu
+header:
+  - name: Documentation
+    url: /documentation
+  - name: Tutorials
+    url: /tutorials/
+
+# Footer menu
+footer:
+  - name: Contact
+    url: /contact
+  - name: Terms of Service
+    url: /terms
+  - name: License
+    url: /license
+
+# Social Menu
+social:
+  - name: GitHub
+    url: http://github.com/abstracthat
+  - name: Twitter
+    url: @abstracthat
+  # - name: Facebook
+  #   url: 
+  # - name: Instagram
+  #   url: 
+  # - name: Pinterest
+  #   url: 

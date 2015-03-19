@@ -1,13 +1,12 @@
 header
   nav.main
     .logo
-      a(href='/') Site Lightning
+      a(href='/')= site.name
 
     .menu-toggle#menu
       .menu-icon
 
     .menu
       ul
-        li: a(href='#') Page One
-        li: a(href='#') Another Page
-        li: a(href='#') One More Page
+        each page in header
+          li: a(href= page.url)= page.name

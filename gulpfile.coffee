@@ -23,11 +23,22 @@ axis = require 'axis'
 jeet = require 'jeet'
 rupture = require 'rupture'
 
-# Enable markdown blocks in Jade
+# Date parsing
+moment = require 'moment'
+
+jade = require 'jade'
+_ = require 'lodash'
+
+# Enable markdown blocks in Jade and syntax highlighting
 marked = require 'marked'
+highlight = (require 'highlight.js').highlightAuto
 # Use proper quotes and apostrophes
 marked.setOptions
   smartypants: true
+
+# My module to create site.json, a map of structured data for the site
+# Pages in Collections are sorted by date
+map = require './map'
 
 # Settings: server and paths
 server = 'projects:/var/www/sitelightning.co'
@@ -35,17 +46,54 @@ path =
   stylus: 'source/styles/**/*.styl'
   mainStylus: 'source/styles/main.styl'
   coffee: 'source/scripts/**/*.coffee'
+  content: 'source/content/**/*.{jade,md}'
+  markdown: 'source/content/**/*.md'
   jade: 'source/content/**/*.jade'
-  allContent: 'source/{content,templates}/**/*.{jade,md}'
+  allContent: 'source/{content,templates}/**/*'
   images: 'source/images'
   fonts: 'source/fonts'
   development: './development'
   production: './production'
 
-# Compile jade to html
+# Build json sitemap
+gulp.task 'map', (done) ->
+  map done
+
+# Compile Markdown source through Jade layout
+gulp.task 'markdown', (done) ->
+  site = require './site.json'
+  gulp.src path.markdown
+  .pipe plugins.plumber()
+  .pipe plugins.frontMatter
+    property: 'data'
+  .pipe plugins.markdown
+    smartypants: true
+  .pipe plugins.data (file) ->
+    date = new Date(file.data.date)
+    if file.data.date
+      file.data.datetime = moment(date).format()
+      file.data.date = moment(date).format('MMMM Do, YYYY')
+    file.data.layout = "./source/templates/#{file.data.layout}.jade"
+    file.data.pretty = true
+    data = _.extend {}, site, file.datas
+  .pipe plugins.layout (file) ->
+    file.data
+  .pipe gulp.dest path.development
+  done()
+
+# Compile Jade source
 gulp.task 'jade', ->
+  site = require './site.json'
   gulp.src path.jade
   .pipe plugins.plumber()
+  .pipe plugins.frontMatter
+    property: 'data'
+  .pipe plugins.data (file) ->
+    date = new Date(file.data.date)
+    if file.data.date
+      file.data.datetime = moment(date).format()
+      file.data.date = moment(date).format('MMMM Do, YYYY')
+    data = _.extend {}, site, file.data
   .pipe plugins.jade
     pretty: true
   .pipe gulp.dest path.development
@@ -106,6 +154,7 @@ gulp.task 'compile', [
   'bower'
   'js'
   'jade'
+  'markdown'
   'stylus'
 ]
 
@@ -175,7 +224,12 @@ gulp.task 'clear', (done) ->
 
 # Delete development and production build folders
 gulp.task 'clean', ['clear'], ->
-  gulp.src [path.development, path.production, './bower_components'], read: false
+  gulp.src [
+    path.development
+    path.production
+    './bower_components'
+    './site.json'
+  ], read: false
   .pipe plugins.clean()
 
 # Open a web browser and watch for changes
@@ -219,7 +273,7 @@ gulp.task 'rsync', ->
 #################
 
 # Develop (the defualt task)
-gulp.task 'develop', (done) ->
+gulp.task 'develop', ['map'], (done) ->
   runSequence 'compile', 'browser', done
 
 gulp.task 'default', ['develop']

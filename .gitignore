@@ -5,3 +5,4 @@ bower_components
 .DS_Store
 notes
 server-setup.txt
+site.json

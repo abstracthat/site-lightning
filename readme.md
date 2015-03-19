@@ -1,9 +1,22 @@
 Because making websites should be fun... and fast. Boilerplate for static site built with Jade, Stylus and Coffeescript, using Gulp.
 
-## Coming Soon
+## New Features
 - Write basic content pages with markdown + front-matter
-- JSON data map of content for rendering index pages, menus, etc
-- More detailed documentation
+- site.json metadata content for entire site with ordered collections. Good for rendering index pages and menus (see `source/templates/includes/header.jade`).
+
+## Config
+Add your site global variables to site.yml. 
+
+## TODO
+0. opengraph meta per file
+0. social menu (buttons / icons)
+0. responsive images - resize versions
+0. code syntax highlighting
+0. rename urls and use different server setup all urls with trailing /
+0. instant click
+0. index - json
+0. ajax client side infinite scroll
+0. jade mixin svg icons
 
 ## Dependencies
 You need [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/). You'll also probably want some nice themes for your text editor for Jade, Stylus, and Coffeescript.
