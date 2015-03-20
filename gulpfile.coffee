@@ -141,9 +141,9 @@ gulp.task 'js', ['coffee', 'bower'], (done) ->
 
 # Install Bower dependencies and move to development lib folder
 # To use a library add it to build blocks in base.jade
-gulp.task 'installBower', (done) ->
-  plugins.bower done
-  
+gulp.task 'installBower', ->
+  gulp.src './bower.json'
+  .pipe plugins.install()
 
 gulp.task 'bower', ['installBower'], (done) ->
   if exists './bower_components'
