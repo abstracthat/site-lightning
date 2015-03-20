@@ -61,7 +61,7 @@ gulp.task 'map', (done) ->
   map done
 
 # Compile Markdown source through Jade layout
-gulp.task 'markdown', (done) ->
+gulp.task 'markdown', ->
   site = require './site.json'
   gulp.src path.markdown
   .pipe plugins.plumber()
@@ -80,10 +80,9 @@ gulp.task 'markdown', (done) ->
   .pipe plugins.layout (file) ->
     file.data
   .pipe gulp.dest path.development
-  done()
 
 # Compile Jade source
-gulp.task 'jade', (done) ->
+gulp.task 'jade', ->
   site = require './site.json'
   gulp.src path.jade
   .pipe plugins.plumber()
@@ -98,10 +97,9 @@ gulp.task 'jade', (done) ->
   .pipe plugins.jade
     pretty: true
   .pipe gulp.dest path.development
-  done()
 
 # Compile stylus to css with sourcemaps
-gulp.task 'stylus', (done) ->
+gulp.task 'stylus', ->
   gulp.src path.mainStylus
   .pipe plugins.plumber()
   .pipe plugins.sourcemaps.init()
@@ -116,10 +114,9 @@ gulp.task 'stylus', (done) ->
   .pipe plugins.sourcemaps.write()
   .pipe gulp.dest path.development
   .pipe reload stream: true
-  done()
 
 # Compile coffeescript to js with sourcemaps
-gulp.task 'coffee', (done) ->
+gulp.task 'coffee', ->
   gulp.src path.coffee
   .pipe plugins.plumber()
   .pipe plugins.sourcemaps.init()
@@ -128,16 +125,14 @@ gulp.task 'coffee', (done) ->
   .on 'error', plugins.util.log
   .pipe plugins.sourcemaps.write()
   .pipe gulp.dest path.development
-  done()
 
 # Use browserify to compile any require statments
-gulp.task 'js', ['coffee', 'bower'], (done) ->
+gulp.task 'js', ['coffee', 'bower'], ->
   gulp.src "#{path.development}/main.js"
   .pipe plugins.plumber()
   .pipe transform (file) ->
     (browserify file).bundle()
   .pipe gulp.dest path.development
-  done()
 
 # Install Bower dependencies and move to development lib folder
 # To use a library add it to build blocks in base.jade
@@ -145,11 +140,10 @@ gulp.task 'installBower', ->
   gulp.src './bower.json'
   .pipe plugins.install()
 
-gulp.task 'bower', ['installBower'], (done) ->
+gulp.task 'bower', ['installBower'], ->
   if exists './bower_components'
     gulp.src bowerFiles()
     .pipe gulp.dest "#{path.development}/lib"
-  done()
 
 # Compile source files for development
 gulp.task 'compile', [
@@ -181,7 +175,7 @@ gulp.task 'optimize', ->
   .pipe gulp.dest path.production
 
 # cache bust asset file names
-gulp.task 'cacheref', (done) ->
+gulp.task 'cacheref', ->
   bust = new plugins.cachebust()
 
   gulp.src "#{path.production}/**/*.css"
@@ -195,7 +189,6 @@ gulp.task 'cacheref', (done) ->
   gulp.src "#{path.production}/**/*.html"
   .pipe bust.references()
   .pipe gulp.dest path.production
-  done()
 
 # cleanup cachebust assets
 gulp.task 'cachebust', ['cacheref'], (done) ->
@@ -205,22 +198,20 @@ gulp.task 'cachebust', ['cacheref'], (done) ->
     ], done()
 
 # Optimize and move images
-gulp.task 'images', (done) ->
+gulp.task 'images', ->
   gulp.src "#{path.images}/*"
   .pipe plugins.plumber()
   .pipe plugins.cache plugins.imagemin
     progressive: true
     interlaced: true
   .pipe gulp.dest "production/images"
-  done()
 
 # Move other files for production
-gulp.task 'move', (done) ->
+gulp.task 'move', ->
   gulp.src [
     'source/fonts/**/*'
   ]
   .pipe gulp.dest "#{path.production}"
-  done()
 
 # Clear Gulp cache
 gulp.task 'clear', (done) ->
