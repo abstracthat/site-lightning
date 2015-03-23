@@ -1,5 +1,6 @@
 footer.footer
-  p &copy; 2015 
+  - var year = (new Date().getFullYear())
+  p &copy; #{year} 
     a(href='/') SiteLightning.com
   nav: ul
     each link in footer
