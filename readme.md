@@ -9,14 +9,13 @@ Because making websites should be fun... and fast. Boilerplate for static site b
     - `source/templates/includes/footer.jade`
 
 ## TODO
-0. opengraph meta per file
 0. social menu and post share buttons
-0. responsive images - resize and save multiple versions
-0. code syntax highlighting
+0. opengraph meta
 0. rename urls and use different server setup all urls with trailing /
-0. instant click
-0. ajax client side infinite scroll
-0. jade mixin svg icons
+0. gulp responsive images
+0. responsive image jade mixin
+0. code syntax highlighting
+0. client: ajax load json for infinite scrolling collection index https://github.com/infinite-scroll/infinite-scroll
 
 ## Dependencies
 You need [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/). You'll also probably want some nice themes for your text editor for Jade, Stylus, and Coffeescript.
