@@ -1,7 +1,7 @@
 # Global site config
 site:
   name: Site Lightning
-  url: sitelightning.co
+  url: http://sitelightning.co
 
 # Main menu
 header:
@@ -21,13 +21,9 @@ footer:
 
 # Social Menu
 social:
-  - name: GitHub
-    url: http://github.com/abstracthat
-  - name: Twitter
-    url: @abstracthat
-  # - name: Facebook
-  #   url: 
-  # - name: Instagram
-  #   url: 
-  # - name: Pinterest
-  #   url: 
+  - github: http://github.com/abstracthat
+  - twitter: @abstracthat
+  # - facebook: 
+  # - instagram: 
+  # - pinterest: 
+  # - youtube: 

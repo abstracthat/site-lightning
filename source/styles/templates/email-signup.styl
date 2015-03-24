@@ -1,15 +1,15 @@
 .signup
+  full-width()
+  padding-vertical()
   background-color olive
   color white
-  padding-vertical()
 
   +above(desktop)
-    padding-vertical(base * 2)
+    padding-vertical(large-base)
   
   > div
-    center medium
-    sides()
-
+    center medium, g
+    
     +above(medium + g)
       sides 0
 
@@ -27,7 +27,6 @@
 
   .button
     display inline-block
-    button black
     font-rhythm 1.2
     font-weight 600
 

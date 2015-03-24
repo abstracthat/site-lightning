@@ -1,14 +1,8 @@
-.page > header
-  group()
+header.header
   background-color black
-
-nav.main
-  center()
-  group()
   padding-top base
-
-  +above(3)
-    padding-right g
+  full-width()
+  group()
 
 .menu-toggle
   float right
@@ -50,6 +44,7 @@ nav.main
 
   +above(3)
     display block
+    padding-right g
 
   > ul
     reset-list()
@@ -78,5 +73,6 @@ nav.main
         +above(3)
           link teal
           padding 0
+
           &:hover
             background none

@@ -1,10 +1,12 @@
 .collection
 
   .intro
-    border-bottom 2px dotted silver
-    border-top @border-bottom
-    padding-top base
     rhythm()
+    border-bottom 2px dotted silver
+    
+    +above(4)
+      padding-top base
+      border-top @border-bottom
 
   .article
     rhythm()
@@ -20,5 +22,6 @@
 
     p
       rhythm .5
+
     a
       link olive

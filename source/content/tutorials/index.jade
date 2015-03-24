@@ -16,7 +16,7 @@ block content
         Yes, we will use "preprocessor" languages to make our work simpler, faster, and dare I say... actually fun. I'll dispell some of the magic going on so that you will understand what we are doing each step of the way.
 
     section.pages
-      each page in collections['/tutorials/'].pages
+      each page in collections[url].pages
         article.article
           h2: a(href=page.url)= page.title
           p!= page.intro

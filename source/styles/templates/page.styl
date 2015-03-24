@@ -1,9 +1,10 @@
 .page
   background-color white
+  center()
 
+// center content with a readable measure and horizontal padding
+// Set top and bottom margin to base + media query to use large-base for desktop
 section.content
-  // center content with a readable measure and horizontal padding
-  // Set top and bottom margin to base + media query to use large-base for desktop
   center medium
   sides()
   padding-vertical()
@@ -23,12 +24,6 @@ section.content
 
     +above(large)
       rhythm-size 1.2, large-base
-
-  // Button for main call-to-action
-  .button
-    button olive
-    font-size 1.2em
-    font-weight 600
 
   time
     display inline-block

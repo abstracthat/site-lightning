@@ -2,6 +2,7 @@ footer.footer
   - var year = (new Date().getFullYear())
   p &copy; #{year} 
     a(href='/') SiteLightning.com
+
   nav: ul
     each link in footer
       li: a(href=link.url)= link.name

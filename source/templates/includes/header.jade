@@ -1,12 +1,11 @@
-header
-  nav.main
-    .logo
-      a(href='/')= site.name
+header.header
+  .logo
+    a(href='/')= site.name
 
-    .menu-toggle#menu
-      .menu-icon
+  .menu-toggle#menu
+    .menu-icon
 
-    .menu
-      ul
-        each page in header
-          li: a(href= page.url)= page.name
+  .menu
+    ul
+      each page in header
+        li: a(href= page.url)= page.name

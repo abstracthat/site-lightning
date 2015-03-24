@@ -56,6 +56,8 @@ path =
   development: './development'
   production: './production'
 
+directory = 'source/content'
+
 # Build json sitemap
 gulp.task 'map', (done) ->
   map done
@@ -76,7 +78,8 @@ gulp.task 'markdown', ->
       file.data.date = moment(date).format('MMMM Do, YYYY')
     file.data.layout = "./source/templates/#{file.data.layout}.jade"
     file.data.pretty = true
-    data = _.extend {}, site, file.datas
+    file.data.url = (file.path.slice (file.path.indexOf directory) + directory.length).replace /(index)?(\.jade$|.\md$)/, ''
+    data = _.extend {}, site, file.data
   .pipe plugins.layout (file) ->
     file.data
   .pipe gulp.dest path.development
@@ -93,6 +96,7 @@ gulp.task 'jade', ->
     if file.data.date
       file.data.datetime = moment(date).format()
       file.data.date = moment(date).format('MMMM Do, YYYY')
+    file.data.url = (file.path.slice (file.path.indexOf directory) + directory.length).replace /(index)?(\.jade$|.\md$)/, ''
     data = _.extend {}, site, file.data
   .pipe plugins.jade
     pretty: true

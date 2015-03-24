@@ -6,13 +6,15 @@ block body
   //- Main Page Container
   .page
     //- Header / Menu
-    include includes/header
+    block header
+      include includes/header
     //- Page content
     section.content
-      header
-        h1!= title
-        if date
-          time(datetime= datetime) Written on #{date}
+      block page-title
+        header
+          h1!= title
+          if date
+            time(datetime= datetime) Written on #{date}
       article(role='main')
         block content
           //- Markdown files get rendered here

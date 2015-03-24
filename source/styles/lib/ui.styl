@@ -1,0 +1,12 @@
+// Hover Gradient
+// gradient background + hover based on a background color and text / fill color
+hover-gradient(background-color, color = #fff)
+  gradient background-color
+  color color
+
+  &:hover
+    gradient background-color, 15%
+    background-color lighten(background-color, 2%)
+  
+  &:active
+    gradient background-color 5%

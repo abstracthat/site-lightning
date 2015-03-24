@@ -12,13 +12,21 @@ padding-sides(left = g, right = left)
 // shorthand alias
 sides = padding-sides
 
-margin-sides(left = g, right = left)
-  margin-left left
-  margin-right right
-
 padding-vertical(top = (base / 2), bottom = top)
   padding-top top
   padding-bottom bottom
+
+// pad sides by gutter, top/bottom by base and mq for large
+pad()
+  padding-sides()
+  padding-vertical()
+
+  +above(4)
+    padding-vertical (large-base / 2)
+
+margin-sides(left = g, right = left)
+  margin-left left
+  margin-right right
 
 margin-vertical(top = (base / 2), bottom = top)
   margin-top top
@@ -39,9 +47,26 @@ ratio-box(ratio = 1/1)
     height 0
     padding-top (1 / ratio) * 100%
 
-// Collapse top margin of first child and bottom margin of second child.
-collapse-inner-margins()
-	> :first-child
-		margin-top 0
-	> :last-child
-		margin-bottom 0
+// Collapse top (or left) margin of first child and bottom (or right) margin of second child.
+collapse-children(direction = vertical)
+  > :first-child
+    if direction is vertical
+      margin-top 0
+    else
+      margin-left 0
+  > :last-child
+    if direction is vertical
+      margin-bottom 0
+    else
+      margin-right 0
+
+// use negative margins to create background that is full-window width
+full-width()
+  margin-left -9999rem
+  margin-right -9999rem
+  padding-left 9999rem
+  padding-right 9999rem
+
+// setup placeholder for extending
+$full-width
+  full-width()
