@@ -1,8 +1,9 @@
 footer.footer
   - var year = (new Date().getFullYear())
   p &copy; #{year} 
-    a(href='/') SiteLightning.com
+    a(href='/')= site.name
 
   nav: ul
     each link in footer
-      li: a(href=link.url)= link.name
+      - var isCurrent = url == link.url ? 'current-page': '';
+      li: a(class= isCurrent, href=link.url)= link.name

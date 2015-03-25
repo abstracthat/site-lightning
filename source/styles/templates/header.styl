@@ -58,6 +58,13 @@ header.header
       margin-bottom 1px
       rhythm-size 1.1
 
+      &.current-page
+        font-weight 600
+        background-color black + 10%
+        
+        +above(3)
+          background none
+
       +above(3)
         margin-bottom 0
         padding 0
@@ -69,10 +76,14 @@ header.header
         transition .3s
         padding (base / 2) g
         link teal darken
-
+        
         +above(3)
           link teal
           padding 0
 
           &:hover
             background none
+
+          &.current-page
+            font-weight 600
+            opacity .8

@@ -8,4 +8,5 @@ header.header
   .menu
     ul
       each page in header
-        li: a(href= page.url)= page.name
+        - var isCurrent = page.url == url ? 'current-page': '';
+        li(class= isCurrent): a(href= page.url)= page.name
