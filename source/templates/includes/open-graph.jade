@@ -46,10 +46,12 @@ else
   meta(name='twitter:title', content= title)
 
 //- Limit to 200 characters
+if twitter-description
+  meta(name='twitter:description', content= twitter-description)
 else if og-description
-  meta(name='twitter:card', content= og-description)
+  meta(name='twitter:description', content= og-description)
 else
-  meta(name='twitter:card', content= description)
+  meta(name='twitter:description', content= description)
 
 if social.twitter
   meta(name='twitter:site', content= social.twitter)
