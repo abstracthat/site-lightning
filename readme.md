@@ -3,7 +3,6 @@ Because making websites should be fun... and fast. Boilerplate for static site b
 http://sitelightning.co/
 
 ## TODO
-0. opengraph meta
 0. rename urls and use different server setup all urls with trailing /
 0. add image / iframe lazy loader: https://github.com/aFarkas/lazysizes 
 0. gulp responsive images https://github.com/mahnunchik/gulp-responsive

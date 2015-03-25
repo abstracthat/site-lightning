@@ -18,6 +18,9 @@ html(lang='en')
       title= title
       meta(name='description', content= description)
 
+    block open-graph
+      include includes/open-graph
+
     // build:js /script.min.js
     script(src='/lib/fastclick.js')
     script(src='/lib/jquery.js')

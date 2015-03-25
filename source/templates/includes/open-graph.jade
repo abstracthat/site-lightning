@@ -1,0 +1,55 @@
+//- Open Graph meta for Facebook, Twitter, Pinterest, etc
+
+meta(property='og:site_name', content= site.name)
+meta(property='og:type', content='article')
+meta(property='og:url', content='#{site.url}#{url}')
+
+if datetime
+  meta(property='article:published_time', content= datetime)
+
+//- Stay between 60 and 90 charcters
+if og-title
+  meta(property='og:title', content= og-title)
+else
+  meta(property='og:title', content= title)
+
+//- Limit to 200 characters
+if og-description
+  meta(property='og:description', content= og-description)
+else
+  meta(property='og:description', content= description)
+
+//- 1.91/1 ratio 1200x627
+if og-image
+  meta(property='og:image', content='#{site.url}#{og-image}')
+  meta(property='twitter:image', content='#{site.url}#{og-image}')
+else if image
+  meta(property='og:image', content='#{site.url}#{image}')
+  meta(property='twitter:image', content='#{site.url}#{image}')
+
+//- Twitter Card specifics
+//- https://cards-dev.twitter.com/validator
+//- Twitter cards can be summary, photo, video, product, app, gallery, and “large version” summary
+if twitter-type
+  meta(name='twitter:card', content= twitter-type)
+else
+  meta(name='twitter:card', content='summary')
+
+meta(property='twitter:url', content='#{site.url}#{url}')
+
+//- Limit to 70 characters
+if twitter-title
+  meta(name='twitter:title', content= twitter-title)
+else if og-title
+  meta(name='twitter:title', content= og-title)
+else
+  meta(name='twitter:title', content= title)
+
+//- Limit to 200 characters
+else if og-description
+  meta(name='twitter:card', content= og-description)
+else
+  meta(name='twitter:card', content= description)
+
+if social.twitter
+  meta(name='twitter:site', content= social.twitter)
