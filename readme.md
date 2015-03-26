@@ -1,14 +1,14 @@
 Because making websites should be fun... and fast. Boilerplate for static site built with Jade, Stylus and Coffeescript, using Gulp. Built with best web delivery practices, solid SEO, and simplicity in site structure in mind.
 
 ## TODO
+0. test / finish parallax mixin for ARI site
 0. add image / iframe lazy loader: https://github.com/aFarkas/lazysizes 
-0. gulp responsive images https://github.com/mahnunchik/gulp-responsive
+0. responsive image jade mixin
+0. gulp responsive images https://github.com/mahnunchik/gulp-responsive automatically make all formats for each file
 0. replace gulp-markdown with marked
 0. customize marked to parse images for classes to support lazyload
-0. responsive image jade mixin
 0. favicons: https://github.com/haydenbleasel/gulp-favicons
-0. customize marked lexer for youtube and video and audio blocks
-0. test / finish parallax mixin
+0. customize marked lexer for youtube, video and audio blocks
 0. code syntax highlighting. Highlight.js was not working when I tried
 0. client: ajax load json for infinite scrolling collection index https://github.com/infinite-scroll/infinite-scroll
 0. Make client-side coffeescript modular
