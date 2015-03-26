@@ -7,7 +7,6 @@ runSequence = require 'run-sequence'
 # Server + browser with live refresh / injection
 browserSync = require 'browser-sync'
 reload = browserSync.reload
-cleanUrls = require 'hygienist-middleware'
 
 # Bower and Browserify
 bowerFiles = require 'main-bower-files'
@@ -82,6 +81,7 @@ gulp.task 'markdown', ->
     data = _.extend {}, site, file.data
   .pipe plugins.layout (file) ->
     file.data
+  .pipe plugins.prettyUrl()
   .pipe gulp.dest path.development
 
 # Compile Jade source
@@ -100,6 +100,8 @@ gulp.task 'jade', ->
     data = _.extend {}, site, file.data
   .pipe plugins.jade
     pretty: true
+  # Rename all files to filename/index.html
+  .pipe plugins.prettyUrl()
   .pipe gulp.dest path.development
 
 # Compile stylus to css with sourcemaps
@@ -239,7 +241,6 @@ gulp.task 'browser', ->
         path.development
         './source'
       ]
-      middleware: cleanUrls 'development'
 
   # Watch for changes
   gulp.watch path.allContent, ['jade', 'markdown', reload]
@@ -252,7 +253,6 @@ gulp.task 'previewBrowser', ->
   browserSync
     server:
       baseDir: path.production
-      middleware: cleanUrls 'production'
 
 # rsync the build directory to your server
 gulp.task 'rsync', (done) ->

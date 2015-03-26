@@ -15,7 +15,7 @@ markdown.setOptions
 directory = 'source/content'
 
 # scaffold the site object
-site =
+map =
   site:
     name: ''
     url: ''
@@ -25,14 +25,14 @@ site =
   collections: {}
 
 # pass in some site variables via site.yml
-_.extend site, yaml.load './site.yml'
+_.extend map, yaml.load './site.yml'
 
 # Get the collections (folders) first so we can sort our pages into them
 getCollections = (done) -> 
   directories "./#{directory}", (err, collections) ->
     for collection in collections
       url = "#{collection}/".replace directory, ''
-      site.collections[url] =
+      map.collections[url] =
         url: url
         pages: [] # array to push found pages into later
     done()
@@ -85,37 +85,40 @@ createMap = (done) ->
         page.image = content.attributes.image if meta.image
 
       # the url is either the root, page, collection, or page in a collection
-      # root
+      # root is just '/'
       if page.url is '/'
-        site.site.title = page.title
-        site.site.description = page.description
+        map.site.title = page.title
+        map.site.description = page.description
       
-      # page
+      # it's a site level page if there is only 1 '/'
+      # add the slash so that all url's end with '/' to match nginx server
       else if (page.url.match /\//g).length < 2
-        site.pages[page.url] = page
+        page.url += '/'
+        map.pages[page.url] = page
       
-      # collection index
+      # it's collection index page if the url ends in '/'
       else if page.url.match /\/$/
-        _.extend site.collections[page.url], page
+        _.extend map.collections[page.url], page
       
-      # page in a collection
+      # otherwise it's a page in a collection + add trailing '/' to match server
       else
         collection = (path.dirname page.url) + '/'
-        site.collections[collection].pages.push page
+        page.url += '/'
+        map.collections[collection].pages.push page
     
     # Finished with createMap, callback
     done()
 
 # Sort the pages in each collection by date (newest first)
 sortCollectionPages = (done) ->
-  for key, collection of site.collections
+  for key, collection of map.collections
     collection.pages.sort (a, b) ->
       new Date(b.datetime) - new Date(a.datetime)
   done()
 
 # Write the site object to site.json
 writeJSON = (done) ->
-  fs.writeFileSync './site.json', JSON.stringify site
+  fs.writeFileSync './site.json', JSON.stringify map
   done()
 
 # Main program

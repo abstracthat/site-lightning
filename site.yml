@@ -6,18 +6,18 @@ site:
 # Main menu
 header:
   - name: Documentation
-    url: /documentation
+    url: /documentation/
   - name: Tutorials
     url: /tutorials/
 
 # Footer menu
 footer:
   - name: Contact
-    url: /contact
+    url: /contact/
   - name: Terms of Service
-    url: /terms
+    url: /terms/
   - name: License
-    url: /license
+    url: /license/
 
 # Social Menu
 social:
