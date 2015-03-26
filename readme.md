@@ -1,16 +1,24 @@
 Because making websites should be fun... and fast. Boilerplate for static site built with Jade, Stylus and Coffeescript, using Gulp. Built with best web delivery practices, solid SEO, and simplicity in site structure in mind.
 
-http://sitelightning.co/
-
 ## TODO
-0. rename urls and use different server setup all urls with trailing /
 0. add image / iframe lazy loader: https://github.com/aFarkas/lazysizes 
 0. gulp responsive images https://github.com/mahnunchik/gulp-responsive
+0. replace gulp-markdown with marked
+0. customize marked to parse images for classes to support lazyload
 0. responsive image jade mixin
 0. favicons: https://github.com/haydenbleasel/gulp-favicons
+0. customize marked lexer for youtube and video and audio blocks
+0. test / finish parallax mixin
 0. code syntax highlighting. Highlight.js was not working when I tried
 0. client: ajax load json for infinite scrolling collection index https://github.com/infinite-scroll/infinite-scroll
+0. Make client-side coffeescript modular
+0. setup gulp-prompt https://github.com/Freyskeyd/gulp-prompt
 0. gulp new:site (delete content, ask questions, populate files)
+0. gulp new:collection (ask questions, populate files)
+0. gulp new:page (ask questions, populate files)
+0. gulp new:template (ask questions, populate files)
+0. gulp new:style (ask questions, populate files)
+0. gulp new:lib (this would be a stylus mixin, ask questions, populate files)
 
 ## Dependencies
 You need [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/). You'll also probably want some nice themes for your text editor for Jade, Stylus, and Coffeescript.
