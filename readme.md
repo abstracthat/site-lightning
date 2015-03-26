@@ -2,6 +2,8 @@ Because making websites should be fun... and fast. Boilerplate for static site b
 
 ## TODO
 0. test / finish parallax mixin for ARI site
+0. drafts
+0. prose.io config
 0. add image / iframe lazy loader: https://github.com/aFarkas/lazysizes 
 0. responsive image jade mixin
 0. gulp responsive images https://github.com/mahnunchik/gulp-responsive automatically make all formats for each file
@@ -19,6 +21,9 @@ Because making websites should be fun... and fast. Boilerplate for static site b
 0. gulp new:template (ask questions, populate files)
 0. gulp new:style (ask questions, populate files)
 0. gulp new:lib (this would be a stylus mixin, ask questions, populate files)
+0. move lib mixins to seperate projects and add them through npm
+0. Write better doc
+0. Write tutorials
 
 ## Dependencies
 You need [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/). You'll also probably want some nice themes for your text editor for Jade, Stylus, and Coffeescript.
