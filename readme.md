@@ -5,6 +5,8 @@ Works as a Gulp static site generator. Loop through collections of files in fold
 ## TODO
 It's good enough to use but todo is...
 
+### Next
+0. `.current-page` checks if page in current collection
 0. test / finish parallax mixin
 0. allow saving as drafts
 
