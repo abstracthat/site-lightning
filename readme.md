@@ -2,6 +2,27 @@ Because making websites should be fun... and fast. Boilerplate for static site b
 
 Works as a Gulp static site generator. Loop through collections of files in folders. Meta data happy.
 
+## Dependencies
+[Node](https://nodejs.org/), [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/).
+
+You'll also probably want some nice themes for your text editor for Jade, Stylus, and Coffeescript.
+
+```bash
+npm install -g gulp
+npm install -g bower
+```
+
+## Clone and Run
+After you clone the repo just run...
+
+```bash
+npm install && gulp
+```
+
+... install can be a little slow due to graphics library testing. See (Sharp)[https://github.com/lovell/sharp] and (imagemin)[https://github.com/imagemin/imagemin].
+
+Full documentation coming soon here: http://sitelightning.co/documentation.
+
 ## TODO
 It's good enough to use but todo is...
 
@@ -40,24 +61,3 @@ It's good enough to use but todo is...
 0. Make client-side coffeescript modular with exports and require
 0. Write better doc
 0. Write tutorials
-
-## Dependencies
-(Node)[https://nodejs.org/], [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/).
-
-You'll also probably want some nice themes for your text editor for Jade, Stylus, and Coffeescript.
-
-```bash
-npm install -g gulp
-npm install -g bower
-```
-
-## Clone and Run
-After you clone the repo just run...
-
-```bash
-npm install && gulp
-```
-
-... install can be a little slow due to graphics library testing. See (Sharp)[https://github.com/lovell/sharp] and (imagemin)[https://github.com/imagemin/imagemin].
-
-Full documentation coming soon here: http://sitelightning.co/documentation.
