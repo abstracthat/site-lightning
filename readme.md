@@ -13,13 +13,13 @@ npm install -g bower
 ```
 
 ## Clone and Run
-After you clone the repo just run...
+After you `git clone` the repo and `cd` to your folder, just run...
 
 ```bash
 npm install && gulp
 ```
 
-... install can be a little slow due to graphics library testing. See (Sharp)[https://github.com/lovell/sharp] and (imagemin)[https://github.com/imagemin/imagemin].
+... install can be a little slow due to graphics library testing. You might also need some dependencies: see [Sharp](https://github.com/lovell/sharp) and [imagemin](https://github.com/imagemin/imagemin).
 
 Full documentation coming soon here: http://sitelightning.co/documentation.
 
