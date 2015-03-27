@@ -5,16 +5,19 @@ block vars
 block body
   //- Main Page Container
   .page
+
     //- Header / Menu
     block header
       include includes/header
+
     //- Page content
     section.content
-      block page-title
+      block page-header
         header
           h1!= title
           if date
             time(datetime= datetime) Written on #{date}
+      //- the main article content
       article(role='main')
         block content
           //- Markdown files get rendered here

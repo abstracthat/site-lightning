@@ -77,7 +77,10 @@ gulp.task 'markdown', ->
       file.data.date = moment(date).format('MMMM Do, YYYY')
     file.data.layout = "./source/templates/#{file.data.layout}.jade"
     file.data.pretty = true
-    file.data.url = (file.path.slice (file.path.indexOf directory) + directory.length).replace /(index)?(\.jade$|.\md$|\.html$)/, ''
+    file.data.url = file.path.slice (file.path.indexOf directory) + directory.length
+    .replace /(index)?(\.jade$|\.md$|\.html$)/, ''
+    unless file.data.url.slice -1 is '/'
+      file.data.url = "#{file.data.url}/"
     data = _.extend {}, site, file.data
   .pipe plugins.layout (file) ->
     file.data
@@ -96,7 +99,10 @@ gulp.task 'jade', ->
     if file.data.date
       file.data.datetime = moment(date).format()
       file.data.date = moment(date).format('MMMM Do, YYYY')
-    file.data.url = (file.path.slice (file.path.indexOf directory) + directory.length).replace /(index)?(\.jade$|.\md$|\.html$)/, ''
+    file.data.url = (file.path.slice (file.path.indexOf directory) + directory.length)
+    .replace /(index)?(\.jade$|\.md$|\.html$)/, ''
+    unless file.data.url.slice -1 is '/'
+      file.data.url = "#{file.data.url}/"
     data = _.extend {}, site, file.data
   .pipe plugins.jade
     pretty: true

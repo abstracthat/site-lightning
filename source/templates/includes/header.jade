@@ -3,10 +3,10 @@ header.header
     a(href='/')= site.name
 
   .menu-toggle#menu
-    .menu-icon
+    .icon
 
   .menu
     ul
       each page in header
-        - var isCurrent = page.url == url ? 'current-page': '';
+        - var isCurrent = url.match(page.url) ? 'current-page': '';
         li(class= isCurrent): a(href= page.url)= page.name

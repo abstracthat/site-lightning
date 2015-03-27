@@ -1,6 +1,7 @@
 ---
-title: A Tutorial on Jade Templating for Making Static Sites
+title: Making Static Sites With Jade Templates
 description: Learn why designers love the simplicity and power of Jade in this in-depth tutorial.
+image: "//placekitten.com/1000/300"
 layout: page
 tags:
   - Jade

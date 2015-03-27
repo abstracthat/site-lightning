@@ -1,6 +1,7 @@
 ---
 title: An Introduction to Stylus for Designers
 description: Stylus is a great alternative to Sass and Less. Check out this in-depth tutorial written for designers.
+image: "//placekitten.com/1000/300"
 layout: page
 tags:
   - Stylus

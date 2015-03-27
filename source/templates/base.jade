@@ -15,8 +15,8 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
     block meta
-      title= title
-      meta(name='description', content= description)
+      title!= title
+      meta(name='description', content!= description)
 
     block open-graph
       include includes/open-graph
@@ -27,5 +27,5 @@ html(lang='en')
     script(src='/main.js')
     // endbuild
 
-  body
+  body(class= bodyClass)
     block body
