@@ -2,6 +2,7 @@
 html
   font-size 100%
   line-height body-line-height
+  overflow-x hidden
 
   +above(large)
     font-size large-body-font-size
@@ -9,6 +10,7 @@ html
 
 body
   font-family font-stack
+  overflow-x hidden
   // background-color white - 15%
 
 p, li, time
@@ -115,12 +117,15 @@ pre
     background-color black + 7%
     color white - 15%
     white-space pre-wrap
-    word-break normal
+    word-break break-all
     font-family Menlo, Monaco, monospace
 
     +above(mobile)
       margin 0
       padding g
+
+    +above(3)
+      word-break normal
 
 code
   padding 0 6px
