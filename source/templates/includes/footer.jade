@@ -6,6 +6,4 @@ footer.footer
   nav: ul
     each page in footer
       - var isCurrentFooter = url.match(page.url) ? 'current-page': '';
-      p= page.url
-      p= url
       li: a(class= isCurrentFooter, href=page.url)= page.name
