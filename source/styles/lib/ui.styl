@@ -1,12 +1,14 @@
 // Hover Gradient
-// gradient background + hover based on a background color and text / fill color
-hover-gradient(background-color, color = #fff)
-  gradient background-color
+// gradient background + hover based on a background color and text / fill color and hover and active strength gradient percentages
+hover-gradient(background-color, color = #fff, strength = null, hover-strength = 15, active-strength = 5)
+  hover-strength = unit(remove-unit(hover-strength), '%')
+  active-strength = unit(remove-unit(active-strength), '%')
+
+  gradient background-color strength
   color color
 
   &:hover
-    gradient background-color, 15%
-    background-color lighten(background-color, 2%)
-  
+    gradient background-color hover-strength
+    
   &:active
-    gradient background-color 5%
+    gradient background-color active-strength
