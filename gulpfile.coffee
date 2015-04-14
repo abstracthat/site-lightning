@@ -21,6 +21,7 @@ rsync = (require 'rsyncwrapper').rsync
 axis = require 'axis'
 jeet = require 'jeet'
 rupture = require 'rupture'
+lost = require 'lost'
 
 # Date parsing
 moment = require 'moment'
@@ -118,6 +119,7 @@ gulp.task 'stylus', ->
   .pipe plugins.stylus
     use: [
       jeet()
+      lost()
       rupture()
       axis
         implicit: false
