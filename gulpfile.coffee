@@ -124,7 +124,14 @@ gulp.task 'stylus', ->
       axis
         implicit: false
     ]
-  .pipe plugins.autoprefixer()
+  .pipe plugins.autoprefixer
+    browsers: [
+      '> 1%'
+      'last 2 versions'
+      'Firefox ESR'
+      'Opera 12.1'
+      'Explorer >= 9'
+    ]
   .pipe plugins.sourcemaps.write()
   .pipe gulp.dest path.development
   .pipe reload stream: true
