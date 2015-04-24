@@ -1,13 +1,12 @@
-// button styles
-a.button, button.button
+a.button, button.button, input[type='submit']
   display inline-block
-  color #fff
+  rhythm .5
+  padding .5em 1em
   background-color black + 12%
   border-radius .4em
-  text-shadow rgba(0,0,0,0.3) 0 -.1em 0
   box-shadow inset rgba(0,0,0,0.1) 0 -0.15em 0, inset rgba(255,255,255,0.2) 0 0.15em 0, rgba(0,0,0,0.3) 0 0.1em .3em
-  rhythm .5
-  padding .5em .5em .4em .5em
+  color #fff
+  text-shadow rgba(0,0,0,0.3) 0 -.1em 0
 
   &:hover
     color #fff
@@ -18,9 +17,9 @@ a.button, button.button
     box-shadow rgba(255,255,255,0.2) 0 .10em 0, inset rgba(0,0,0,0.3) 0 .25em 1em
 
   svg
-    display block
+    display inline
     float left
-    padding 0.2em
+    padding .25em .15em .15em
     width base
     height base
     fill #fff
@@ -38,6 +37,9 @@ a.button, button.button
 
   &.primary
     hover-gradient olive
+    padding .7em 1em
+    font-weight 600
+    font-size 1.2em
 
   &.secondary
     hover-gradient silver, (black + 45%)

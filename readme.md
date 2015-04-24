@@ -27,9 +27,27 @@ Full documentation coming soon here: http://sitelightning.co/documentation.
 It's good enough to use but todo is...
 
 ### Next
-0. `.current-page` checks if page in current collection
-0. test / finish parallax mixin
 0. allow saving as drafts
+
+### Marketing
+0. Track visitor actions (analytics.js)
+0. a/b test variants (css/js)
+0. exit intent js popup
+
+### IE8 support
+Support IE8 with conditional vendor polyfills.
+https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills
+https://github.com/corysimmons/boy/blob/master/css/reset/reset.css
+
+- html5shiv
+- selectivizr
+- boxsizing.htc
+- calc() polyfill
+- css3pie (axis + htc file)
+- legacy css style sheet (rupture rasterize option)
+- png htc
+- placeholder.js
+- svg?
 
 ### Responsive Images
 0. add image / iframe lazy loader: https://github.com/aFarkas/lazysizes 
@@ -44,8 +62,9 @@ It's good enough to use but todo is...
 0. code syntax highlighting. Highlight.js
 
 ### Blogging Enhancements
-0. client: index async load json for remaining posts render when bottom approaching: https://github.com/sakabako/scrollMonitor
-0. prose.io config
+0. collection.jade uses first x posts
+0. add to gulp: render remaining n-x posts to collection.html
+0. client: collection index loads html for remaining pages when bottom approaching: https://github.com/sakabako/scrollMonitor + https://api.jquery.com/load/
 
 ### Code Generators
 0. setup gulp-prompt https://github.com/Freyskeyd/gulp-prompt
@@ -57,7 +76,5 @@ It's good enough to use but todo is...
 0. gulp new:lib (this would be a stylus mixin, ask questions, populate files)
 
 ### Organize
-0. move lib mixins to seperate projects and add them through npm
 0. Make client-side coffeescript modular with exports and require
 0. Write better doc
-0. Write tutorials

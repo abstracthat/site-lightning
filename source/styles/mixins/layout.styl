@@ -1,0 +1,26 @@
+// Set a specific ratio for background images and video iframe embeds.
+ratio-box(ratio = 1/1)
+  ratio = remove-unit(ratio)
+  overflow hidden
+  position relative
+
+  // The container's height, as a percentage of the
+  // container's width, is set by assigning
+  // padding-top to a pseudo-element.
+  &:before
+    content ''
+    display block
+    height 0
+    padding-top (1 / ratio) * 100%
+
+// use negative margins to create background that is full-window width
+// important: you need html, body {overflow-x: hidden} set to prevent scrollbars
+full-width()
+  margin-left -9999rem
+  margin-right -9999rem
+  padding-left 9999rem
+  padding-right 9999rem
+
+// setup placeholder for extending
+$full-width
+  full-width()

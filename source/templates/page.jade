@@ -8,21 +8,24 @@ block body
 
     //- Header / Menu
     block header
-      include includes/header
+      include components/header
 
     //- Page content
     section.content
+
       block page-header
         header
           h1!= title
-          if date
-            time(datetime= datetime) Written on #{date}
+
       //- the main article content
       article(role='main')
         block content
+
           //- Markdown files get rendered here
           != contents
+
     block email
-      include includes/email-signup
+      include components/email-signup
+
     block footer
-      include includes/footer
+      include components/footer

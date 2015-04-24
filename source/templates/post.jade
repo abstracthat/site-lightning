@@ -1,0 +1,10 @@
+extends page
+
+block vars
+
+block page-header
+  header
+    h1!= title
+    if date
+      time(datetime= datetime) Written on #{date}
+

@@ -120,7 +120,8 @@ gulp.task 'stylus', ->
     use: [
       jeet()
       lost()
-      rupture()
+      rupture
+        implicit: false
       axis
         implicit: false
     ]
@@ -231,6 +232,7 @@ gulp.task 'images', ->
 gulp.task 'move', ->
   gulp.src [
     'source/fonts/**/*'
+    'source/robots.txt'
   ]
   .pipe gulp.dest "#{path.production}"
 

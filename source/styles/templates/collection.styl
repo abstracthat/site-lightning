@@ -14,17 +14,19 @@
     border-bottom 2px dotted silver
 
     &:last-child
-      border-bottom none
       padding-bottom 0
+      border-bottom none
 
     h2
       @extends h3
+      rhythm()
 
     p
       rhythm .5
 
     a
-      link darken(olive, 30%), lighten
-    
+      link darken(olive, 30%), 'lighten'
+      font-weight 600
+
     img
       rhythm .5

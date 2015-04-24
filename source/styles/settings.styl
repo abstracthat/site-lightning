@@ -4,32 +4,23 @@ garamond = "adobe-garamond-pro", "Garamond", Times New Roman, serif
 
 font-stack = open-sans
 
-// This sets the baseline grid
-body-font-size = 1.15rem
+// Set the baseline grid
+body-font-size = 1rem
 body-line-height = 1.5
-// This gives a boost to the size of the baseline grid for large screens
-desktop-ratio = 1.07
+// Give a boost to the size of the baseline grid for large screens
+desktop-ratio = 1.08
 
 // Breakpoints (http://jenius.github.io/rupture/)
-mobile-cutoff = mobile = small = 28em
-tablet-cutoff = tablet = medium = 40em
-desktop-cutoff = desktop = large = 53em
-scale = 0 small (small + ((medium - small) / 2)) medium (medium + ((large - medium) / 2)) large
+mobile = rupture.mobile-cutoff = mobile-cutoff = 28rem
+tablet = tablet-cutoff = 40rem
+desktop = rupture.desktop-cutoff = desktop-cutoff = 53rem
+site = rupture.hd-cutoff = site-max-width = max-site-width = max-width = 55rem
+rupture.scale = 0 (mobile) (mobile + ((tablet - mobile) / 2)) (tablet) (desktop) (site)
 
-// Grid Settings (http://jeet.gs/)
-// gutter is a percentage for side padding on columns
-// max-width is the maximum site width
-jeet = {
-  gutter: 3,
-  max-width: 55em
-}
-
-// Useful Aliases for max width
-site-max-width = max-site-width = jeet.max-width
-
-// Alias for adding gutter as a percentage
-// Useful in padding and margin declarations
-g = gutter = (jeet.gutter)%
+// Grid Settings (https://github.com/corysimmons/lost)
+// gutter can be any unit
+// $gutter is used by Lost Grid
+gutter = $gutter = g = 3%
 
 // Clearfix Aliases
-group = clearfix = cf
+group = cf = clearfix

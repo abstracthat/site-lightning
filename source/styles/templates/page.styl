@@ -1,32 +1,11 @@
 .page
-  background-color white
-  center()
+  center site
 
-// center content with a readable measure and horizontal padding
-// Set top and bottom margin to base + media query to use large-base for desktop
+.container
+  group()
+
 section.content
-  center medium
-  sides()
-  padding-vertical()
+  pad()
 
-  // once we hit the medium breakpoint we can remove the side padding
-  // we add the default padding (g) to keep padding as we near the breakpoint
-  +above(medium + g)
+  +above(site + gutter)
     padding-sides 0
-
-  +above(large)
-    padding-top large-base
-
-  // Article intro paragraph
-  p:first-child
-    rhythm-size 1.2
-    line-height 1.5
-
-    +above(large)
-      rhythm-size 1.2, large-base
-
-  time
-    display inline-block
-    rhythm .5
-    font-style italic
-    color gray

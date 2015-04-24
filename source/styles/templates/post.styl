@@ -1,0 +1,21 @@
+// center content with a readable measure and horizontal padding
+// Set top and bottom margin to base + media query to use large-base for desktop
+section.content
+  center tablet
+
+  // once we hit the medium breakpoint we can remove the side padding
+  // we add the default gutter to keep padding as we near the breakpoint
+  +above(tablet + gutter)
+    padding-sides 0
+
+  // Article intro paragraph
+  article[role='main']
+    > p:first-of-type
+      font-size 1.25rem
+      line-height 1.5
+
+  time
+    display inline-block
+    rhythm .5
+    font-style italic
+    color gray

@@ -2,7 +2,7 @@
 title: An Introduction to Coffeescript
 description: Even if you have never used Javascript, this guide for front-end developers will have you up and running fast.
 image: "//placekitten.com/1000/300"
-layout: page
+layout: post
 tags:
   - Coffeescript
   - front-end

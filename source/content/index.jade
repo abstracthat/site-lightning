@@ -1,29 +1,37 @@
 ---
-title: "Go Faster &mdash; Rapid Website Development"
+title: "Site Lightning: Rapid Website Development"
 description: Site Lightning is the fast way to design and build a static website. Try it out now.
 ---
 
 extends ../templates/page
 
+block page-header
+block email
 block content
   :markdown
-    Because making websites should be fun... and fast. Boilerplate for static site built with Jade, Stylus and Coffeescript. Use Gulp as a static site generator with support for collections and front-matter metadata.
+    # Rapid Static Site Development
+    A static site generator for front-end developers. A CLI toolset and library framework that uses Gulp, Stylus, Jade, Coffeescript, Markdown, and YML. A good boilerplate for making sites with flat files.
 
-    ## Quick Start
+  a.primary.button(href='/documentation/') Read the Documentation
+
+  :markdown
+    ---
+    ## Quick Start for Developers
     You need [Node](http://nodejs.org), [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/). You'll also probably want some nice themes for your text editor for Jade, Stylus, and Coffeescript.
 
     ```bash
     npm install -g gulp
     npm install -g bower
     
-    git clone https://github.com/abstracthat/sitelightning.git your-site
-    cd your-site
+    git clone https://github.com/abstracthat/sitelightning.git yoursite.com
+    cd yoursite.com
     npm install
     gulp
     ```
-
+    
     The full [documentation is a work in progress](http://sitelightning.co/documentation/). You might also find the front-end development [tutorials](/tutorials/) helpful.
 
-  +share-button('github', 'http://github.com/abstracthat/sitelightning')
-  +share-button('facebook')
-  +share-button('twitter')
+  .container
+    +share-button('github', 'http://github.com/abstracthat/sitelightning')
+    +share-button('facebook')
+    +share-button('twitter')

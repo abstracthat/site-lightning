@@ -8,26 +8,27 @@
     padding-vertical(large-base)
   
   > div
-    center medium, g
+    center tablet, gutter
     
-    +above(medium + g)
-      sides 0
+    +above(tablet + gutter)
+      padding-sides 0
 
   h2
-    font-rhythm 2.4
-    margin-bottom base
+    rhythm()
+    font-size 2.4rem
     font-weight 800
 
   h3
+    rhythm .5
     color inherit
 
   p
     color inherit
-    font-rhythm 1.2
+    font-size 1.2rem
 
   .button
     display inline-block
-    font-rhythm 1.2
+    font-size 1.2rem
     font-weight 600
 
 .form
@@ -51,7 +52,7 @@ form
     max-height 0
 
 .field
-  margin-bottom (base / 2)
+  rhythm .5
 
   +above(3)
     width (60% - g / 2)
@@ -61,17 +62,17 @@ form
       margin-right g
       width (40% - g / 2)
 
-input
-  padding .5em
-  border solid 1px #bbb
-  border-radius 5px
-  font-size 1.2em
-  line-height 1.5
-  color black + 20%
-  width 100%
+  input
+    padding .5em
+    border solid 1px #bbb
+    border-radius 5px
+    font-size 1.2em
+    line-height 1.5
+    color black + 20%
+    width 100%
 
-  &.error
-    color red
+    &.error
+      color red
 
-    &:focus
-      outline-color yellow
+      &:focus
+        outline-color yellow

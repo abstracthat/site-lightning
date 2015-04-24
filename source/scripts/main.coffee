@@ -2,11 +2,33 @@ $ ->
   # instantiate FastClick on the body
   FastClick.attach document.body
 
-  # toggle menu open/close
-  $('#menu').click ->
-    $('.menu').toggleClass('open')
+  ###
+  Mobile Menu
+  ###
 
-  # AJAX Mailchimp Opt-In Form
+  # Set the menu max-height to 0 to hide for mobile
+  menuHeight = $('.menu').height()
+  $('.menu').css
+    'max-height': 0
+
+  # toggle menu open/close
+  $('#menu-toggle').click ->
+    $('.menu').toggleClass('open')
+    $('.menu-toggle .icon').toggleClass('close')
+
+    # Set the max-height of the open menu to the real height of the menu
+    # The max-height is animated by a CSS transition
+    if $('.menu').hasClass 'open'
+      $('.menu').css
+        'max-height': "#{menuHeight}px"
+    else
+      $('.menu').css
+        'max-height': 0
+
+  ###
+  AJAX Mailchimp Opt-In Form
+  ###
+  
   form = $ '#signup'
 
   if form.length
