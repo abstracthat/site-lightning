@@ -1,0 +1,29 @@
+blockquote
+  position relative
+  rhythm()
+  padding-rhythm()
+  font-size 1.3rem
+  line-height-rhythm()
+  font-family georgia
+  font-style italic
+  text-align center
+
+  &:before
+    content ''
+    position absolute
+    left 25%
+    top 0
+    width 50%
+    border-top 1px solid silver
+
+  &:after
+    content ''
+    position absolute
+    left 25%
+    bottom 0
+    width 50%
+    border-bottom 1px solid silver
+
+  p
+    margin 0
+

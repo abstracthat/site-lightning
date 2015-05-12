@@ -6,7 +6,7 @@ menu-toggle-size = 2.2rem
 menu-height = (2 * menu-padding) + menu-font-size
 large-menu-height = (2 * menu-padding) + large-menu-font-size
 
-header.header
+.site-header
   full-width()
   background black
 
@@ -43,7 +43,7 @@ a.logo
     display inline-block
     width 100%
     height 4px
-    background rgba(white,1)
+    background white
     transition transform .3s
     rounded()
 
@@ -61,7 +61,7 @@ a.logo
       transform translateY(menu-toggle-size / 4)
 
     &.close
-      background rgba(white,0)
+      background none
 
       &:before
         transform rotateZ(45deg)
@@ -70,20 +70,18 @@ a.logo
         transform rotateZ(-45deg)
 
 .menu
-  overflow hidden
-  transition max-height .3s
-  will-change max-height
+  display none
 
   +above(3)
+    display block
     float right
-    width auto
-    max-width site
     padding-right gutter
-    max-height none !important // need important because max-height: 0 set in JS
-    will-change auto // reset b/c no transform above mobile
 
   +above(site + gutter)
     padding-right 0
+
+  &.open
+    display block
 
   ul
     reset-list()
@@ -97,7 +95,7 @@ a.logo
     li
       margin-bottom 1px
       font-size 1.1rem
-      background black + 20%
+      background gun-metal - 60%
 
       +above(3)
         font-size 1.2rem
@@ -114,7 +112,7 @@ a.logo
 
       &.current-page
         font-weight 600
-        background-color black + 10%
+        background-color gun-metal - 68%
         
         +above(3)
           background none
@@ -125,7 +123,7 @@ a.logo
         padding-sides()
         hover-darken 40%
         transition .3s
-        link teal 'darken'
+        link gun-metal 'darken'
         
         +above(3)
           padding 0

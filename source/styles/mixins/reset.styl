@@ -1,4 +1,6 @@
 // Browser Reset
+// TODO: use normalize from axis and reset on top of that
+
 // An opinionated and customized Normalize alternative
 // use border-box for everything
 // typography reset + font smoothing
@@ -8,18 +10,25 @@
 //  hgroup, kbd, samp, code
 
 html
-  box-sizing border-box
+  height 100%
+  overflow-x hidden
   -ms-text-size-adjust 100%
   -webkit-text-size-adjust 100%
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   -webkit-tap-highlight-color transparent
+  box-sizing border-box
 
 *, *:before, *:after
   box-sizing inherit
 
 body
+  group()
   margin 0
+  height 100%
+  overflow-x hidden
+  overflow-y scroll
+  -webkit-overflow-scrolling touch
 
 article,
 aside,
@@ -63,8 +72,8 @@ li
 p
   font-size inherit
 
-strong
-  font-weight bold
+strong, b
+  font-weight 600
 
 sup
   position relative

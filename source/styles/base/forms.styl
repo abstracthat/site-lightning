@@ -1,0 +1,40 @@
+input
+  rhythm .5
+  padding .5em
+  border solid 1px #bbb
+  border-radius 5px
+  font-size 1.2em
+  line-height 1.5
+  color black + 20%
+  width 100%
+
+  &.error
+    color red
+
+    &:focus
+      outline-color yellow
+
+textarea
+  input()
+  display block
+  width 100%
+  font-size 1.2em
+  min-height 12em
+  rhythm()
+
+.form
+  padding-sides()
+  transition background-color .3s
+
+  &.error
+    padding-vertical()
+    background-color red
+
+form
+  opacity 1
+  max-height 30rem
+  transition max-height .5s, opacity .5s
+
+  &.submitted
+    opacity 0
+    max-height 0

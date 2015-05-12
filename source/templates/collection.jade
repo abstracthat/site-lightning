@@ -1,15 +1,16 @@
 extends page
 
 block vars
-  - var bodyClass= 'collection'
+  - var bodyClass = 'collection'
 
 block content
-  section.index
+  section.articles
     each page in collections[url].pages
-      article.article
-        h2: a(href=page.url)!= page.title
+      article.summary
+        h2: a(href= page.url)!= page.title
         if page.image
-          a(href=page.url): img(src= page.image, alt='#{page.title}')
+          a(href= page.url)
+            img(src= page.image, alt!= page.title)
         p!= page.intro
-        a(href=page.url) Read more...
+        a(href= page.url) Read more &raquo;
 

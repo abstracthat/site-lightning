@@ -19,9 +19,9 @@ rsync = (require 'rsyncwrapper').rsync
 
 # Stylus libraries
 axis = require 'axis'
-jeet = require 'jeet'
 rupture = require 'rupture'
-lost = require 'lost'
+grid = require 'happy-grid'
+downbeat = require 'downbeat'
 
 # Date parsing
 moment = require 'moment'
@@ -29,6 +29,7 @@ moment = require 'moment'
 del = require 'del'
 jade = require 'jade'
 _ = require 'lodash'
+folder = (require 'path').dirname
 
 # Enable markdown blocks in Jade and syntax highlighting
 marked = require 'marked'
@@ -36,6 +37,7 @@ highlight = (require 'highlight.js').highlightAuto
 # Use proper quotes and apostrophes
 marked.setOptions
   smartypants: true
+  breaks: true
 
 # My module to create site.json, a map of structured data for the site
 # Pages in Collections are sorted by date
@@ -71,6 +73,7 @@ gulp.task 'markdown', ->
     property: 'data'
   .pipe plugins.markdown
     smartypants: true
+    breaks: true
   .pipe plugins.data (file) ->
     date = new Date(file.data.date)
     if file.data.date
@@ -80,8 +83,10 @@ gulp.task 'markdown', ->
     file.data.pretty = true
     file.data.url = file.path.slice (file.path.indexOf directory) + directory.length
     .replace /(index)?(\.jade$|\.md$|\.html$)/, ''
-    unless file.data.url.slice -1 is '/'
-      file.data.url = "#{file.data.url}/"
+    file.data.url += '/' if file.data.url.slice(-1) isnt '/'
+    file.data.collection = (folder file.data.url) + '/'
+    file.data._ = require 'lodash'
+    file.data.moment = require 'moment'
     data = _.extend {}, site, file.data
   .pipe plugins.layout (file) ->
     file.data
@@ -102,8 +107,12 @@ gulp.task 'jade', ->
       file.data.date = moment(date).format('MMMM Do, YYYY')
     file.data.url = (file.path.slice (file.path.indexOf directory) + directory.length)
     .replace /(index)?(\.jade$|\.md$|\.html$)/, ''
+    file.data.url += '/' if file.data.url.slice(-1) isnt '/'
+    file.data.collection = folder file.data.url
     unless file.data.url.slice -1 is '/'
       file.data.url = "#{file.data.url}/"
+    file.data._ = require 'lodash'
+    file.data.moment = require 'moment'
     data = _.extend {}, site, file.data
   .pipe plugins.jade
     pretty: true
@@ -118,12 +127,12 @@ gulp.task 'stylus', ->
   .pipe plugins.sourcemaps.init()
   .pipe plugins.stylus
     use: [
-      jeet()
-      lost()
       rupture
         implicit: false
       axis
         implicit: false
+      grid()
+      downbeat()
     ]
   .pipe plugins.autoprefixer
     browsers: [

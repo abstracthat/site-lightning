@@ -1,0 +1,76 @@
+// Base Settings and Typography
+body
+  font-family font-stack
+
+p, li, time
+  color black + 20%
+
+p, ul, ol, pre, time
+  rhythm()
+
+// Lists
+ul
+  list-style-type square
+
+li
+  display list-item
+  margin-left 1.3em
+
+// Headers
+h1
+  rhythm()
+  font-size 2.6rem
+  line-height 1.2
+  font-weight 800
+
+  +above(desktop)
+    font-size 4.5rem
+    line-height 1.08
+
+h2
+  rhythm .25
+  font-size 1.625rem
+  line-height 1.2
+  font-weight 600
+
+  +above(mobile)
+    font-size 2rem
+
+  +above(desktop)
+    font-size 2.25rem
+
+h3
+  rhythm .25
+  font-size 1.375rem
+  line-height 1.2
+  font-weight 600
+  color black + 20%
+
+  +above(mobile)
+    font-size 1.5rem
+
+  +above(desktop)
+    font-size 1.75rem
+
+h4, h5, h6
+  rhythm .25
+  font-size 1.125rem
+  line-height 1.4
+  font-weight 600
+  color black + 20%
+
+  +above(desktop)
+    font-size 1.125rem
+
+// Links
+a
+  link blue 'darken'
+
+// Hyphenation and Line/Word Breaking
+p, li, span, small, a
+  word-wrap break-word // Break long urls
+  word-break break-word // webkit
+  hyphens auto // none, auto, <number>
+  -webkit-hyphenate-before 2
+  -webkit-hyphenate-after 3
+  hyphenate-lines 3

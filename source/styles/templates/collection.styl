@@ -3,12 +3,18 @@
   .intro
     rhythm()
     border-bottom 2px dotted silver
-    
+
     +above(4)
       padding-top base
       border-top @border-bottom
 
-  .article
+    p:first-child
+      font-size 1.2em  
+
+  // Index section that lists pages in this collection
+  // .articles
+
+  .summary
     rhythm()
     padding-bottom base
     border-bottom 2px dotted silver
@@ -19,7 +25,7 @@
 
     h2
       @extends h3
-      rhythm()
+      rhythm .5
 
     p
       rhythm .5

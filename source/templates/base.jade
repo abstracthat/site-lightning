@@ -1,5 +1,5 @@
 block vars
-include mixins/index
+include components/index
 
 doctype html
 html(lang='en')
@@ -15,11 +15,11 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
     block meta
-      title!= title
+      title!= meta_title ? meta_title : title
       meta(name='description', content!= description)
 
     block open-graph
-      include components/open-graph
+      include partials/open-graph
 
     // build:js /script.min.js
     script(src='/lib/fastclick.js')

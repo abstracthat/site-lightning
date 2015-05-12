@@ -1,0 +1,42 @@
+mixin share-button(socialsite, link)
+  case socialsite
+
+    when 'twitter'
+      if social.twitter
+        a.button.icon(class= socialsite, target='_blank', href='https://twitter.com/intent/tweet?text=#{title}&url=#{site.url}#{url}&via=#{social.twitter}')
+          +twitter-icon
+          span.text Tweet This
+      else
+        a.button.icon(class= socialsite, target='_blank', href='https://twitter.com/intent/tweet?text=#{title}&url=#{site.url}#{url}')
+          +twitter-icon
+          span.text Tweet This
+
+    when 'facebook'
+      a.button.icon(class= socialsite, target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=#{site.url}#{url}')
+        +facebook-icon
+        span.text Share on Facebook
+
+    when 'google'
+      a.button.icon(class= socialsite, target='_blank', href='https://plus.google.com/share?url=#{site.url}#{url}')
+        +google-icon
+        span.text Share on Google+
+
+    when 'pinterest'
+      if image
+        a.button.icon(class= socialsite, target='_blank', href='https://pinterest.com/pin/create/button/?url=#{site.url}#{url}&description=#{title}&media=#{image}')
+          +pinterest-icon
+          span.text Pin This
+      else
+        a.button.icon(class= socialsite, target='_blank', href='https://pinterest.com/pin/create/button/?url=#{site.url}#{url}&description=#{title}&media=')
+          +pinterest-icon
+          span.text Pin This
+
+    when 'tumblr'
+      a.button.icon(class= socialsite, target='_blank', href='http://www.tumblr.com/share')
+        +tumblr-icon
+        span.text Tumblr
+
+    when 'github'
+      a.button.icon(class= socialsite, target='_blank', href= link)
+        +github-icon
+        span.text View on GitHub

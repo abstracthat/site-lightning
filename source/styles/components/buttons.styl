@@ -2,33 +2,30 @@ a.button, button.button, input[type='submit']
   display inline-block
   rhythm .5
   padding .5em 1em
+  line-height 1.5
   background-color black + 12%
   border-radius .4em
-  box-shadow inset rgba(0,0,0,0.1) 0 -0.15em 0, inset rgba(255,255,255,0.2) 0 0.15em 0, rgba(0,0,0,0.3) 0 0.1em .3em
+  box-shadow inset rgba(black, .1) 0 -0.15em 0, inset rgba(white, .2) 0 0.15em 0, rgba(black, .3) 0 0.1em .3em
   color #fff
-  text-shadow rgba(0,0,0,0.3) 0 -.1em 0
+  text-shadow rgba(black, .2) 0 -.1em 0
 
   &:hover
-    color #fff
     hover-gradient (black + 12%)
-    transition all .3s
 
   &:active
-    box-shadow rgba(255,255,255,0.2) 0 .10em 0, inset rgba(0,0,0,0.3) 0 .25em 1em
+    box-shadow rgba(white, .2) 0 .10em 0, inset rgba(black, .3) 0 .25em 1em
 
   svg
     display inline
     float left
-    padding .25em .15em .15em
+    padding .20em .15em 0 0
     width base
     height base
     fill #fff
 
   &.icon
     position relative
-    float left
-    margin-right .8em
-    padding-right .9em
+    padding-left .9em
 
     .text
       display block
@@ -37,13 +34,13 @@ a.button, button.button, input[type='submit']
 
   &.primary
     hover-gradient olive
-    padding .7em 1em
     font-weight 600
     font-size 1.2em
 
   &.secondary
-    hover-gradient silver, (black + 45%)
-    text-shadow none
+    @extends a.button.primary
+    text-shadow rgba(white, .2) 0 -.1em 0
+    hover-gradient silver (black + 25%)
 
   &.facebook
     hover-gradient #425c9e
@@ -59,3 +56,11 @@ a.button, button.button, input[type='submit']
 
   &.github
     hover-gradient #3269a0
+
+// Wrap multiple buttons next to each other in .buttons
+.buttons
+  .button
+    margin-right .8rem
+
+    &:last-child
+      margin-right 0

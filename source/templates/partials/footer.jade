@@ -1,0 +1,8 @@
+footer.footer
+  p &copy; #{new Date().getFullYear()} 
+    a(href='/')= site.name
+
+  nav: ul
+    each page in footer
+      - var isCurrentPage = url.match(page.url) ? 'current-page': '';
+      li: a(class= isCurrentPage, href=page.url)= page.name

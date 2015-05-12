@@ -1,0 +1,31 @@
+// Inline Code
+code
+  padding 0 6px
+  color inherit
+  background-color white - 5%
+  border-radius 3px
+  font-size .85em
+  word-break break-all
+  font-family Menlo, Monaco, monospace
+  display inline-block
+
+// Code Blocks
+pre
+  overflow auto
+  background black + 7%
+  rhythm-padding()
+  padding-sides gutter * 1.04
+  margin-sides -(gutter * 1.05)
+
+  +above(4)
+    padding-sides (gutter / 2)
+    margin-sides 0
+
+  > code
+    display block
+    padding 0
+    font-size .95em
+    background none
+    color white - 15%
+    white-space pre
+    word-break normal

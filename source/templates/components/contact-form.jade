@@ -1,0 +1,39 @@
+//- 
+  Contact Form Mixin
+  Creates a contact form that uses FormSpree.io.
+  Pass in your email, the page to redirect to after the email is sent without
+  the http:// (i.e. sitelightning.co/thanks/), and the subject for the emails
+  you receive.
+
+mixin contact-form(email, page, subject)
+  .contact-form
+    form#contact(
+      method='POST'
+      action='//formspree.io/#{email}')
+      input(
+        type='text'
+        name='name'
+        placeholder='Name'
+        required)
+      input(
+        type='email'
+        name='_replyto'
+        placeholder='Your Email'
+        required)
+      input(
+        type='text'
+        name='_gotcha'
+        style='display: none')
+      textarea(
+        name='message'
+        placeholder='Message...'
+        required)
+      input(
+        type='hidden'
+        name='_next'
+        value='//#{page}')
+      input(
+        type='hidden'
+        name='_cc'
+        value= subject)
+      button.button(type='submit') Send Message

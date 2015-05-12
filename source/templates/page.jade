@@ -8,24 +8,28 @@ block body
 
     //- Header / Menu
     block header
-      include components/header
+      include partials/header
 
-    //- Page content
-    section.content
+    //- The main content
+    article(role='main')
 
+      //- The page header for the main content
       block page-header
-        header
+        header.page-header
           h1!= title
 
-      //- the main article content
-      article(role='main')
+      //- the content
+      section.content
         block content
 
           //- Markdown files get rendered here
           != contents
 
     block email
-      include components/email-signup
+      +signup('07d877879d', 'Sign Up Now')
+        :markdown
+          ## Stay Up To Date on The Project
+          Enter your name and email address and I'll let you know when there are important updates.
 
     block footer
-      include components/footer
+      include partials/footer

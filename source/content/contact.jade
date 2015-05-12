@@ -5,36 +5,15 @@ description: Fill out the contact form to reach the maintainer of Site Lightning
 
 extends ../templates/page
 
+block vars
+  - bodyClass = 'contact'
+
 block content
   :markdown
     If you would like to discuss a new feature or contributions to the source code then open an issue in the [GitHub repo](http://github.com/abstracthat/sitelighting).
 
     For all other questions feel free to fill out the contact request form below...
 
-  form.contact#contact(
-    method='POST'
-    action='//formspree.io/josh.bertrand@gmail.com')
-    input(
-      type='text'
-      name='name'
-      placeholder='Name')
-    input(
-      type='email'
-      name='_replyto'
-      placeholder='Your Email')
-    input(
-      type='text'
-      name='_gotcha'
-      style='display:none')
-    textarea(
-      name='message'
-      placeholder='Message...')
-    input(
-      type='hidden'
-      name='_next'
-      value='//sitelightning.co/thanks/')
-    input(
-      type='hidden'
-      name='_cc'
-      value='Site Lightning')
-    button(type='submit') Send Message
+  //- Contact Form mixin: email, redirect, email subject
+  +contact-form('josh.bertrand@gmail.com', 'sitelightning.co/thanks/', 'Site Lightning')
+  

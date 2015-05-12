@@ -1,0 +1,46 @@
+//- 
+  Signup Mixin
+  Creates a Mailchimp form. Pass a block for a pitch before the form.
+  You should use an h2 and maybe a p for the pitch.
+  To use this mixin just pass the list 'id' and the 'cta' to be used as text on 
+  the submit button. The list ID can be found in your list's settings...
+  http://kb.mailchimp.com/lists/managing-subscribers/find-your-list-id
+
+mixin signup(id, cta)
+  section.signup
+
+    .content.container
+      block
+
+    .form
+      form#signup(
+        action= mailchimp.submit
+        method='POST')
+
+        input(
+          type='hidden'
+          name='u'
+          value= mailchimp.user)
+
+        input(
+          type='hidden'
+          name='id'
+          value= id)
+        
+        .container
+
+          input.name#name(
+            name='FNAME'
+            type='text'
+            placeholder='First Name'
+            required)
+        
+          input.email#email(
+            name='EMAIL'
+            type='email'
+            placeholder='Your Email'
+            required)
+          
+          button.primary.button(type='submit')= cta
+
+        span.info No Spam Ever!

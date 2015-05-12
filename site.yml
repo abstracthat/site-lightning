@@ -7,13 +7,11 @@ site:
 header:
   - name: Documentation
     url: /documentation/
-  - name: Tutorials
-    url: /tutorials/
+  - name: Contact
+    url: /contact/
 
 # Footer menu
 footer:
-  - name: Contact
-    url: /contact/
   - name: Terms of Service
     url: /terms/
   - name: License
@@ -27,3 +25,12 @@ social:
   # - instagram: 
   # - pinterest: 
   # - youtube: 
+
+# Mailchimp
+# Get your user ID from an existing list's form, it's the 'u' value.
+# The submit url is the action url for the form.
+# These are the same across all lists in your account. Here's how to find them:
+# http://kb.mailchimp.com/lists/signup-forms/host-your-own-signup-forms
+mailchimp:
+  submit: http://marketfurther.us10.list-manage.com/subscribe/post
+  user: aa52d5e1b14f1c50429ce9c39
