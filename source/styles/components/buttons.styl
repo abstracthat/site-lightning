@@ -1,16 +1,15 @@
-a.button, button.button, input[type='submit']
+.button
   display inline-block
   rhythm .5
   padding .5em 1em
   line-height 1.5
-  background-color black + 12%
+  font-size 1em
   border-radius .4em
-  box-shadow inset rgba(black, .1) 0 -0.15em 0, inset rgba(white, .2) 0 0.15em 0, rgba(black, .3) 0 0.1em .3em
-  color #fff
+  color white
+  hover-gradient (black + 12%)
   text-shadow rgba(black, .2) 0 -.1em 0
-
-  &:hover
-    hover-gradient (black + 12%)
+  box-shadow inset rgba(black, .1) 0 -0.15em 0, inset rgba(white, .2) 0 0.15em 0, rgba(black, .3) 0 0.1em .3em
+  transition background-position .3s, color .3s
 
   &:active
     box-shadow rgba(white, .2) 0 .10em 0, inset rgba(black, .3) 0 .25em 1em
@@ -32,15 +31,19 @@ a.button, button.button, input[type='submit']
       float left
       margin-left .5em
 
-  &.primary
-    hover-gradient olive
-    font-weight 600
+  &.large
     font-size 1.2em
+    font-weight 600
+
+  &.primary
+    @extends .button.large
+    hover-gradient olive
 
   &.secondary
-    @extends a.button.primary
+    @extends .button.primary
+    color black + 25%
+    hover-gradient silver
     text-shadow rgba(white, .2) 0 -.1em 0
-    hover-gradient silver (black + 25%)
 
   &.facebook
     hover-gradient #425c9e
@@ -60,7 +63,8 @@ a.button, button.button, input[type='submit']
 // Wrap multiple buttons next to each other in .buttons
 .buttons
   .button
-    margin-right .8rem
+    +above(3)
+      margin-right .8rem
 
-    &:last-child
-      margin-right 0
+      &:last-child
+        margin-right 0

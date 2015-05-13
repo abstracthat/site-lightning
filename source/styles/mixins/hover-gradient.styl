@@ -1,0 +1,10 @@
+// Hover Gradient
+// gradient background + hover based on a background color and text / fill color
+// offset pushes the gradient up
+hover-gradient(background-color, color = @color, strength = null, offset = -2.5em)
+  gradient background-color strength
+  color color
+
+  &:hover
+    background-position 0 offset
+    color color
