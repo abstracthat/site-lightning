@@ -1,0 +1,11 @@
+// use negative margins to create background that is full-window width
+// important: you need html, body {overflow-x: hidden} set to prevent scrollbars
+full-width()
+  margin-left -9999rem
+  margin-right -9999rem
+  padding-left 9999rem
+  padding-right 9999rem
+
+// setup placeholder for extending
+$full-width
+  full-width()
