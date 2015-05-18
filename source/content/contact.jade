@@ -1,6 +1,6 @@
 ---
 title: Get in Touch
-description: Fill out the contact form to reach the maintainer of Site Lightning.
+description: Fill out the contact form to send us an email.
 ---
 
 extends ../templates/page
@@ -10,10 +10,8 @@ block vars
 
 block content
   :markdown
-    If you would like to discuss a new feature or contributions to the source code then open an issue in the [GitHub repo](http://github.com/abstracthat/sitelighting).
-
-    For all other questions feel free to fill out the contact request form below...
+    Fill out the form to send us a message. We'll write back ASAP.
 
   //- Contact Form mixin: email, redirect, email subject
-  +contact-form('josh.bertrand@gmail.com', 'sitelightning.co/thanks/', 'Site Lightning')
+  +contact-form('josh.bertrand@gmail.com', '#{site.url}/message-sent/', site.name)
   

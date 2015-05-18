@@ -6,30 +6,30 @@ block body
   //- Main Page Container
   .page
 
-    //- Header / Menu
+    //- Main Site Header & Menu
     block header
-      include partials/header
+      +site-header
 
     //- The main content
-    article(role='main')
+    article.main(role='main')
+      block main
 
-      //- The page header for the main content
-      block page-header
-        header.page-header
-          h1!= title
+        //- The page header for the main content
+        block page-header
+          header.page-header
+            h1!= title
 
-      //- the content
-      section.content
-        block content
+        //- the content (prose)
+        section.content
+          block content
 
-          //- Markdown files get rendered here
-          != contents
+            //- Markdown files get rendered here
+            != contents
 
-    block email
-      +signup('07d877879d', 'Sign Up Now')
-        :markdown
-          ## Stay Up To Date on The Project
-          Enter your name and email address and I'll let you know when there are important updates.
-
+    //- Promotion / email optin form
+    block promotion
+      section.promotion
+        include ../content/_includes/promotion
+    //- Main Site Footer
     block footer
-      include partials/footer
+      +site-footer

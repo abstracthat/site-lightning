@@ -1,22 +1,18 @@
 .home
-  // override typical page padding on top
-  article[role='main']
-    padding-top 0
-
   // The main pitch at the top
   .pitch
-    background gun-metal
-    color white
-    text-align center
-    full-width()
+    rhythm 1.5
     padding-vertical 2rem
-    rhythm 2
+    full-width()
+    text-align center
+    background black + 30%
+    color white
 
     p
+      margin-sides auto
+      max-width tablet
       font-size 1.3em
       color white
-      max-width tablet
-      margin-sides auto
 
     .button
       display block

@@ -4,29 +4,26 @@ include components/index
 doctype html
 html(lang='en')
   head
-    +google-font('Open Sans', 400, '400italic', 600, '600italic', 800)
+    include partials/first-scripts
 
     // build:css /style.min.css
-    link(rel='stylesheet', href='/lib/normalize.css')
-    link(rel='stylesheet', href='/main.css')
+    each file in styles
+      link(rel='stylesheet', href= file)
     // endbuild
+
+    // build:js /script.min.js
+    each file in scripts
+      script(src= file)
+    // endbuild
+
+    title!= meta_title ? meta_title : title
+    meta(name='description', content!= description)
 
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
-    block meta
-      title!= meta_title ? meta_title : title
-      meta(name='description', content!= description)
-
-    block open-graph
-      include partials/open-graph
-
-    // build:js /script.min.js
-    script(src='/lib/fastclick.js')
-    script(src='/lib/jquery.js')
-    script(src='/main.js')
-    // endbuild
+    include partials/open-graph
 
   body(class= bodyClass)
     block body

@@ -31,9 +31,9 @@ mixin contact-form(email, page, subject)
       input(
         type='hidden'
         name='_next'
-        value='//#{page}')
+        value= page)
       input(
         type='hidden'
         name='_cc'
-        value= subject)
+        value!= subject)
       button.primary.button(type='submit') Send Message

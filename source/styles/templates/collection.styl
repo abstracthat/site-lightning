@@ -1,11 +1,6 @@
 .collection
   .intro
-    rhythm()
-    border-bottom 2px dotted silver
-
-    +above(4)
-      padding-top base
-      border-top @border-bottom
+    rhythm 1.5
 
     p:first-child
       font-size 1.2em  
@@ -14,13 +9,10 @@
   // .articles
 
   .summary
-    rhythm()
-    padding-bottom base
-    border-bottom 2px dotted silver
+    rhythm 1.5
 
     &:last-child
-      padding-bottom 0
-      border-bottom none
+      margin-bottom 0
 
     h2
       @extends h3

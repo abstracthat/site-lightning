@@ -5,7 +5,9 @@
     h1
       rhythm 1
 
-  section.content
+  .main .content
+    padding-rhythm 0 1
+
     // Article intro paragraph
     > p:first-of-type
       font-size 1.25rem
@@ -24,6 +26,6 @@
 
   .next
     column '1/2'
-    float right !important // important forces float if there's no previous link
+    float right !important // force float if there's no previous link
     padding-rhythm()
     text-align right

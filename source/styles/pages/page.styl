@@ -5,11 +5,16 @@
 .container
   group()
 
-article[role='main']
+.main
   padding-sides()
 
   +above(site + gutter)
     padding-sides 0
+
+  // the content (prose) should have a readable measure
+  .content
+    center tablet
+    padding-bottom base
 
 .page-header
   padding-rhythm 1
@@ -17,10 +22,3 @@ article[role='main']
 
   h1
     margin-bottom 0
-
-// the content (prose) should have a readable measure
-section.content
-  center tablet
-  padding-rhythm 0 1
-
-

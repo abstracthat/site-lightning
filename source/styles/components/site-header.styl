@@ -1,0 +1,136 @@
+menu-padding ?= base
+menu-font-size ?= 1.3rem
+large-menu-font-size ?= 1.6rem
+menu-toggle-size ?= 2.2rem
+
+menu-height = (2 * menu-padding) + menu-font-size
+large-menu-height = (2 * menu-padding) + large-menu-font-size
+
+.site-header
+  full-width()
+  background black
+
+  .logo
+    display inline-block
+    margin-left gutter
+    padding-vertical menu-padding
+    font-size menu-font-size
+    line-height 1
+    font-weight 600
+    link white, 'darken'
+    transition color .3s
+
+    +above(site + gutter)
+      margin-left 0
+      font-size large-menu-font-size
+
+  .menu
+    display none
+
+    +above(3)
+      display block
+      float right
+      padding-right gutter
+
+    +above(site + gutter)
+      padding-right 0
+
+    &.open
+      display block
+
+    ul
+      reset-list()
+      background black
+
+      +above(3)
+        float right
+        inline-list 2em
+        background none
+
+      li
+        margin-bottom 1px
+        font-size 1.1rem
+        background gun-metal - 60%
+
+        +above(3)
+          font-size 1.2rem
+          line-height menu-height
+          margin-bottom 0
+          padding 0
+          background none
+
+        +above(desktop)
+          line-height large-menu-height
+
+        &:last-child
+          margin-bottom 0
+
+        &.current-page
+          font-weight 600
+          background-color gun-metal - 68%
+          
+          +above(3)
+            background none
+
+        a
+          display block
+          padding-vertical()
+          padding-sides()
+          hover-darken 40%
+          transition .3s
+          link gun-metal 'darken'
+          
+          +above(3)
+            padding 0
+
+            &:hover
+              background none
+
+            &.current-page
+              font-weight 600
+              opacity .8
+
+  .toggle
+    float right
+    margin -3px gutter 0 0
+    line-height menu-height
+    cursor pointer
+    user-select none
+    width menu-toggle-size
+
+    +above(3)
+      display none
+
+    &:hover, &:active
+      opacity .8
+
+    .icon
+      position relative
+      display inline-block
+      width 100%
+      height 4px
+      background white
+      transition transform .3s
+      rounded()
+
+      &:before, &:after
+        @extends .site-header .toggle .icon
+        position absolute
+        left 0
+        content ''
+        will-change transform
+
+      &:before
+        transform translateY(menu-toggle-size / -4)
+
+      &:after
+        transform translateY(menu-toggle-size / 4)
+
+      &.close
+        background none
+
+        &:before
+          transform rotateZ(45deg)
+
+        &:after
+          transform rotateZ(-45deg)
