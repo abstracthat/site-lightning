@@ -1,4 +1,4 @@
-Boilerplate for static sites built with Jade, Stylus and Coffeescript, using Gulp. Built with best web delivery practices, solid SEO, and clean/DRY structure in mind. Fast. Easy. Fun. http://sitelightning.co/
+Boilerplate for static sites built with Jade, Stylus and Coffeescript, using Gulp. Built with best web delivery practices, solid SEO, and clean/DRY structure in mind. Fast. Easy. Fun. Read more + quick start here: http://sitelightning.co/
 
 ## Dependencies
 [Node](https://nodejs.org/), [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/): `npm i -g gulp bower`.
