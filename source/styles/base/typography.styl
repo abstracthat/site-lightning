@@ -1,13 +1,24 @@
-// Base Settings and Typography
 body
   font-family font-stack
+  // font-size / line-height is in settings.styl
 
-p, li, time
+p, li
   font-size inherit
+  line-height inherit
   color black + 20%
 
-p, ul, ol, pre, time
+p, ul, ol
   rhythm()
+
+// Placeholder for larger paragraph style
+$lead-paragraph
+  font-size 1.25em
+  line-height 1.5
+
+time
+  display inline-block
+  font-style italic
+  color gray
 
 strong
   font-weight 600
@@ -38,10 +49,10 @@ h2
   font-weight 600
 
   +above(mobile)
-    font-size 2rem
+    font-size 1.875rem
 
   +above(desktop)
-    font-size 2.25rem
+    font-size 2rem
 
 h3
   rhythm .25
@@ -51,10 +62,10 @@ h3
   color black + 20%
 
   +above(mobile)
-    font-size 1.5rem
+    font-size 1.4rem
 
   +above(desktop)
-    font-size 1.75rem
+    font-size 1.6rem
 
 h4, h5, h6
   rhythm .25
@@ -66,15 +77,9 @@ h4, h5, h6
   +above(desktop)
     font-size 1.125rem
 
+h5, h6
+  text-transform uppercase
+
 // Links
 a
   link blue 'darken'
-
-// Hyphenation and Line/Word Breaking
-p, li, span, small, a
-  word-wrap break-word // Break long urls
-  word-break break-word // webkit
-  hyphens auto // none, auto, <number>
-  -webkit-hyphenate-before 2
-  -webkit-hyphenate-after 3
-  hyphenate-lines 3

@@ -7,38 +7,38 @@
   http://kb.mailchimp.com/lists/managing-subscribers/find-your-list-id
 
 mixin signup(id, cta)
-    .content.container
-      block
+  .content.container
+    block
 
-    .form
-      form#signup(
-        action= mailchimp.submit
-        method='POST')
+  .form
+    form#signup(
+      action= mailchimp.submit
+      method='POST')
 
-        input(
-          type='hidden'
-          name='u'
-          value= mailchimp.user)
+      input(
+        type='hidden'
+        name='u'
+        value= mailchimp.user)
 
-        input(
-          type='hidden'
-          name='id'
-          value= id)
+      input(
+        type='hidden'
+        name='id'
+        value= id)
+      
+      .container
+
+        input.name#name(
+          name='FNAME'
+          type='text'
+          placeholder='First Name'
+          required)
+      
+        input.email#email(
+          name='EMAIL'
+          type='email'
+          placeholder='Your Email'
+          required)
         
-        .container
+        button.primary.button(type='submit')= cta
 
-          input.name#name(
-            name='FNAME'
-            type='text'
-            placeholder='First Name'
-            required)
-        
-          input.email#email(
-            name='EMAIL'
-            type='email'
-            placeholder='Your Email'
-            required)
-          
-          button.primary.button(type='submit')= cta
-
-        span.info No Spam Ever!
+      span.info No Spam Ever!

@@ -9,4 +9,5 @@ mixin site-header
         ul
           each page in header
             - var isCurrentPage = url.match(page.url) ? 'current-page': '';
-            li(class= isCurrentPage): a(href= page.url)!= page.title
+            li(class= isCurrentPage)
+                a(href= page.url)!= page.title

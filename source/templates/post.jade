@@ -3,11 +3,9 @@ extends page
 block vars
   - bodyClass = 'post'
 
-block page-header
-  header.page-header
-    h1!= title
-    if date
-      time(datetime= datetime) Written on #{date}
+append page-header
+  if date
+    time(datetime= datetime) Written on #{date}
 
 append content
   - var currentCollection = collections[collection].pages;
@@ -16,11 +14,11 @@ append content
   - var next = currentIndex < collectionLength ? currentCollection[currentIndex + 1] : null;
   - var previous = currentIndex ? currentCollection[currentIndex - 1] : null;
 
-  .collection-nav.container
+  nav.container
     if previous
       .previous
-        a(href= previous.url, title= previous.title) &laquo; Previous Page
+        a(href= previous.url, title!= previous.title) &laquo; Previous Page
 
     if next
       .next
-        a(href= next.url, title=next.title) Next Page &raquo;
+        a(href= next.url, title!= next.title) Next Page &raquo;

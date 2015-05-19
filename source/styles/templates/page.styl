@@ -1,12 +1,9 @@
-// Global layout classes
 .page
   center site
 
-.container
-  group()
-
 .main
   padding-sides()
+  padding-rhythm 0 1
 
   +above(site + gutter)
     padding-sides 0
@@ -14,10 +11,9 @@
   // the content (prose) should have a readable measure
   .content
     center tablet
-    padding-bottom base
 
 .page-header
-  padding-rhythm 1
+  padding-rhythm 1.5
   text-align center
 
   h1

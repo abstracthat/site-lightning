@@ -12,11 +12,12 @@ block body
 
     //- The main content
     article.main(role='main')
+      //- Use `block main` if you don't want the header and section.content
       block main
 
         //- The page header for the main content
-        block page-header
-          header.page-header
+        header.page-header
+          block page-header
             h1!= title
 
         //- the content (prose)
@@ -30,6 +31,7 @@ block body
     block promotion
       section.promotion
         include ../content/_includes/promotion
+
     //- Main Site Footer
     block footer
       +site-footer

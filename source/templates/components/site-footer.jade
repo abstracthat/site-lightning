@@ -1,7 +1,7 @@
 mixin site-footer
   footer.site-footer
     p &copy; #{new Date().getFullYear()} 
-      a(href='/')!= site.name
+      a(href='/')= site.name
 
     if footer
       nav: ul
