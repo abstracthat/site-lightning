@@ -22,3 +22,8 @@ append content
     if next
       .next
         a(href= next.url, title!= next.title) Next Page &raquo;
+
+  unless no_comments
+    if disqus
+      .comments
+        #disqus_thread

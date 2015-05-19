@@ -50,6 +50,10 @@ google_fonts:
 # If you are using Typekit pass the kit ID here
 # typekit: xxx
 
+# Comments
+# Disqus https://disqus.com/
+# disqus: 
+
 # Social accounts
 social:
   - twitter: 
