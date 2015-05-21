@@ -14,6 +14,7 @@ Your first install can be a little slow due to graphics library testing. You mig
 This boilerplate uses [Gulp Lightning](http://github.com/abstracthat/gulp-lightning). I've abstracted the library/boilerplate stuff into dependencies in that repo. This makes it easy to update your project by just bumping the version for `gulp-lightning` in the `package.json` file. The only other requirement is a local install of `gulp`.
 
 Here are the related projects this boilerplate uses:
+
 0. [Gulp Lightning](http://github.com/abstracthat/gulp-lightning)
 0. [Happy Grid](http://github.com/abstracthat/happy-grid)
 0. [Downbeat](http://github.com/abstracthat/downbeat)
