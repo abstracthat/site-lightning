@@ -56,12 +56,12 @@ google_fonts:
 
 # Social accounts
 social:
-  - twitter: 
-  - facebook: 
-  - instagram: 
-  - pinterest: 
-  - youtube: 
-#   - github: 
+  # twitter: 
+  # facebook: 
+  # instagram: 
+  # pinterest: 
+  # youtube: 
+  # github: 
 
 # Mailchimp
 # Get your user ID from an existing list's form, it's the 'u' value.
@@ -71,6 +71,11 @@ social:
 mailchimp:
   submit: '#'
   user: id
+
+# FB Admin
+# Your Facebook numeric ID gives you data in Page Insights
+# It gets added as an open graph tag
+# fbadmins: 
 
 # Google Analytics
 # Adds Google Analytics tracking if you add your key here

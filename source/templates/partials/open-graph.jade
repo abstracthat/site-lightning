@@ -34,9 +34,11 @@ else if image
 
 //- Twitter Card specifics
 //- https://cards-dev.twitter.com/validator
-//- Twitter cards can be summary, photo, video, product, app, gallery, and “large version” summary
+//- Twitter cards can be summary, summary_large_image, photo, video, product, app, gallery
 if twitter_type
   meta(name='twitter:card', content= twitter_type)
+else if image
+  meta(name='twitter:card', content='summary_large_image')
 else
   meta(name='twitter:card', content='summary')
 
@@ -60,3 +62,6 @@ else
 
 if social.twitter
   meta(name='twitter:site', content= social.twitter)
+
+if fbadmins
+  meta(name='fb:admins', content= fbadmins)
