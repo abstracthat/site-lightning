@@ -60,8 +60,9 @@ else if og_description
 else
   meta(name='twitter:description', content= description)
 
-if social.twitter
-  meta(name='twitter:site', content= social.twitter)
+if social
+  if social.twitter
+    meta(name='twitter:site', content= social.twitter)
 
 if fbadmins
   meta(name='fb:admins', content= fbadmins)
