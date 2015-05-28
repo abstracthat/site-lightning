@@ -4,7 +4,8 @@ include components/index
 doctype html
 html(lang='en')
   head
-    include partials/first-scripts
+    block first-scripts
+      include partials/first-scripts
 
     // build:css /style.min.css
     each file in styles
