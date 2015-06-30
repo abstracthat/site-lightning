@@ -1,4 +1,4 @@
-Boilerplate for static sites built with Jade, Stylus and Coffeescript, using Gulp. Built with best web delivery practices, solid SEO, and clean/DRY structure in mind. Fast. Easy. Fun. Read more + quick start here: http://sitelightning.co/
+Boilerplate for static sites and static file email marketing built with Jade, Stylus and Coffeescript, using Gulp. Best web delivery practices, solid SEO, and clean/DRY structure in mind. Fast. Easy. Fun. Read more + quick start here: http://sitelightning.co/
 
 ## Dependencies
 [Node](https://nodejs.org/), [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/): `npm i -g gulp bower`.
@@ -9,6 +9,8 @@ Boilerplate for static sites built with Jade, Stylus and Coffeescript, using Gul
 3. Run `npm install && gulp`
 
 Your first install can be a little slow due to graphics library testing. You might also need some dependencies: see [Sharp](https://github.com/lovell/sharp) and [imagemin](https://github.com/imagemin/imagemin).
+
+To work on your email campaigns run `gulp email`.
 
 ## Related Projects
 This boilerplate uses [Gulp Lightning](http://github.com/abstracthat/gulp-lightning). I've abstracted the library/boilerplate stuff into dependencies in that repo. This makes it easy to update your project by just bumping the version for `gulp-lightning` in the `package.json` file. The only other requirement is a local install of `gulp`.

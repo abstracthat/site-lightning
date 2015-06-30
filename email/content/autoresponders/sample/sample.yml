@@ -1,0 +1,38 @@
+layout: short
+subject: Automation Test Email 1
+headline: Automation Test Email 1
+cta:
+  url: "http://google.com/"
+  text: Go To Google
+image:
+  src: "//placehold.it/600x250"
+  width: 600
+  height: 250
+  alt: A placeholder image
+preview: Auto Test 1 custom preview text goes here.
+
+type: auto
+options:
+  title: auto-test-1.yml
+  folder_id: 
+  list_id: test
+  subject: auto-test-1.yml
+  to_name: "*|FNAME|*"
+  tracking:
+    opens: true
+    html_clicks: true
+    text_clicks: true
+
+type_opts:
+  auto:
+    offset-units: day # day,week,month,year
+    offset-time: 1
+    schedule_hour: 10
+    offset-dir: after # after,before
+    event: signup # signup,date,annual,birthday,mergeChanged,campaignOpen,campaignClicka,campaignClicko (clicks on a specific URL in a campaign)
+    # if event is date, annual, birthday, mergeChanged specify the merge var to use
+    event-datemerge: 
+    # if event is campaignOpen, campaignClicka, campaignClicko
+    campaign_id: 
+    # if event is campaignClicko
+    campaign_url: 

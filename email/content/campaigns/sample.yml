@@ -1,0 +1,8 @@
+subject: Sample
+headline: This is the Sample Headline
+image:
+  src: //placehold.it/600x250
+  width: 600
+  height: 250
+  alt: A placeholder image
+preview: Sample custom preview text goes here.

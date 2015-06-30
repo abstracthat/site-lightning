@@ -1,0 +1,24 @@
+# Your Mailchimp datacenter
+datacenter: us10
+
+# Create your list in mailchimp. To see your list id's run...
+# gulp mailchimp:lists
+lists:
+  default: 111111111d
+
+# create folders for this site in Mailchimp, 1 for campaigns, 1 for autoresponders
+# see your folder ID's with this gulp command...
+# gulp mailchimp:folders
+folders:
+  campaigns: 0000
+  autoresponders: 00
+
+# Google Fonts only
+fonts:
+  - family: Open Sans
+    weights:
+      - 400
+      - 400italic
+      - 600
+      - 600italic
+      - 800

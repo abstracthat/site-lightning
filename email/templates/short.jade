@@ -1,0 +1,10 @@
+extends layouts/email
+
+block content
+  if headline
+    h1.align-center= headline
+
+  != contents
+
+  if cta
+    +button('primary', cta.url, cta.text)

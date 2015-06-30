@@ -1,0 +1,33 @@
+extends layouts/base
+
+block body
+  h1.margin-vertical Email Campaigns
+  p.
+    <a href='#rss'>RSS Digest</a> &middot;
+    <a href='#campaigns'>Regular</a> &middot;
+    <a href='#split'>Split Tests</a> &middot;
+    <a href='#auto'>Auto-Responder Sequences</a>
+  hr.hr.margin-vertical.large-bottom
+
+  h2#rss RSS Digest
+  ul.margin-vertical.large-bottom
+    for email in rss
+      li: a(href='/rss/#{email}.html')= email.replace(/-/g, ' ')
+  
+  h2#campaigns Regular Campaigns
+  ul.margin-vertical.large-bottom
+    for email in campaigns
+      li: a(href= '/campaigns/#{email}.html')= email.replace(/-/g, ' ')
+
+  h2#split Split Test Campaigns
+  ul.margin-vertical.large-bottom
+    for email in splitTests
+      li: a(href= '/split-tests/#{email}.html')= email.replace(/-/g, ' ')
+
+  h2#auto Auto-Responder Sequences
+  for autoresponder, index in autoresponders
+    h3= index.replace(/-/g, ' ')
+
+    ol
+      for email in autoresponder
+        li: a(href= '/autoresponders/#{index}/#{email}.html')= email.replace(/-/g, ' ')

@@ -1,0 +1,28 @@
+# ssh server for rsync deployment
+server: "host:/var/www/mysite.com"
+
+# Site folder structure
+site:
+  source: site
+  development: site/.development
+  production: site/.production
+  styles: site/styles
+  scripts: site/scripts
+  content: site/content
+  templates: site/templates
+  images: site/images
+  fonts: site/fonts
+  root: site/root
+
+# Email folder structure
+email:
+  source: email
+  build: email/.build
+  content: email/content
+  campaigns: email/content/campaigns
+  autoresponders: email/content/autoresponders
+  rss: email/content/rss
+  splitTests: email/content/split-tests
+  images: email/images
+  styles: email/styles
+  templates: email/templates

@@ -3,10 +3,11 @@ site:
   name: Your Site
   url: http://yoursite.com
 
-# The site owner's name and email (optional)
-# author:
-#   name: 
-#   email: 
+# The site owner's name and email.
+# Required for contact form, RSS, and for sending MailChimp campaigns.
+author:
+  name: Your Name
+  email: your@email.com
 
 # Main menu
 # header:

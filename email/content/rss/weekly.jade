@@ -1,0 +1,18 @@
+---
+subject: "Did You See These Posts From *|RSSFEED:TITLE|*?"
+preview: "This week's posts from *|LIST:URL|*"
+---
+
+extends ../../templates/layouts/email
+
+block image
+
+block content
+  h1.align-center Did You See These New Posts?
+  | *|FEEDBLOCK:#{site.url}/rss.xml|*
+  | *|FEEDITEMS:[$count=10]|*
+  h2 *|FEEDITEM:TITLE|*
+  p *|FEEDITEM:DATE|*
+  p *|FEEDITEM:CONTENT|*
+  | *|END:FEEDITEMS|*
+  | *|END:FEEDBLOCK|*

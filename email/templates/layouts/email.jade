@@ -1,0 +1,51 @@
+extends base
+
+block body
+
+  block pre-header
+    if preview
+      span.pre-header= preview
+
+  block header
+    .header
+      table: tr
+        
+        //- Site Name / Logo
+        td.align-left
+          a.logo(href= site.url)= site.name
+        
+        //- Archive Link
+        //- Hide this if viewing in archive page in browser
+        // *|IFNOT:ARCHIVE_PAGE|*
+        td.align-right.vertical-middle.grey
+          span No images? 
+          a(href='*|ARCHIVE|*', target='_blank') View It Online
+        // *|END:IF|*
+
+  block image
+    if image
+      table(border-spacing=0): tr
+        td(width='600')       
+          img(src= image.src
+            width= image.width
+            height= image.height
+            alt= image.alt)
+
+  block main
+    table.main: tr
+      td.wrapper
+        table: tr
+          td
+            //- Our main content block
+            block content
+
+  block footer
+    .footer
+      table(border-spacing=0): tr
+        td.align-center: center
+          p *|LIST:DESCRIPTION|*
+          p
+            a(href='*|UNSUB|*', target='_blank') Unsubscribe &middot;&nbsp;&nbsp;
+            a(href='*|UPDATE_PROFILE|*', target='_blank') Update Your Profile
+          p *|HTML:LIST_ADDRESS_HTML|*
+          p Copyright &copy; *|CURRENT_YEAR|* *|LIST:COMPANY|* All Rights Reserved

@@ -1,0 +1,24 @@
+include ../mixins/index
+
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+    meta(name='viewport' content='width=device-width')
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+    title *|MC:SUBJECT|*
+    if fonts
+      each font in fonts 
+        - font.family = font.family.replace(' ', '+')
+        link(href='http://fonts.googleapis.com/css?family=#{font.family}:#{font.weights}', rel='stylesheet', type='text/css')
+    link(inline
+      href='/main.css'
+      rel='stylesheet'
+      type='text/css')
+  body
+    table.body(border-spacing='0')
+      tr
+        td
+        td.container
+          .page
+            block body
+        td

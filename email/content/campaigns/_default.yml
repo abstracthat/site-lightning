@@ -1,0 +1,34 @@
+type: regular
+
+options:
+  title: default
+  folder_id: 
+  list_id: 
+  subject: 150 characters max
+  to_name: "*|FNAME|*"
+  tracking:
+    opens: true
+    html_clicks: true
+    text_clicks: true
+
+# segment_opts:
+#   saved_segment_id:
+#   match: all # any, all
+
+#   # up to five conditions in array
+#   conditions:
+#     # date
+#     - field: date
+#       op: eq # eq,gt,lt
+#       value: last_campaign_sent # last_campaign_sent,campaign_id,YYYY-MM-DD
+
+#     # subscriber activity
+#     - field: aim
+#       op: noopen # open,noopen,click,noclick,sent,nosent
+#       value: any # any,campaign_id
+
+#     # Merge Vars
+#     # You can see available vars with gulp mailchimp:vars
+#     - field: # Merge0..Merge30
+#       op: # eq (=), ne (!=), gt (>), lt (<), like ('%blah%'), nlike ('%blah%'), starts ('blah%'), ends ('%blah'), blank, nblank
+#       value: 

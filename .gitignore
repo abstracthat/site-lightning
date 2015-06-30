@@ -1,7 +1,10 @@
+notes
 node_modules
-development
-production
+.development
+.production
+.build
 bower_components
 .DS_Store
-notes
 site.json
+email.json
+secrets.yml
