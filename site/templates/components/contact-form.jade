@@ -31,7 +31,7 @@ mixin contact-form(email, page, subject)
       input(
         type='hidden'
         name='_next'
-        value='//#{page}')
+        value='//#{site.url}#{page}')
       input(
         type='hidden'
         name='_cc'
